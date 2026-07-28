@@ -1,0 +1,17 @@
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Local environment and generated output
+.env
+.env.*
+!.env.example
+build/
+out/
+node_modules/
+
+# Temporary files
+*.log
+*.tmp
+*~
