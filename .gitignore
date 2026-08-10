@@ -10,6 +10,8 @@
 build/
 out/
 node_modules/
+.vitepress/cache/
+.vitepress/dist/
 
 # Temporary files
 *.log
