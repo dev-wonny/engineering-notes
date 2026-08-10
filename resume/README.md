@@ -60,12 +60,12 @@ Java/Spring 기반 백엔드 개발을 중심으로 서비스 개발, AWS 환경
 
 이력서만으로 설명하기 어려운 설계 판단과 문제 해결 과정은 이 사이트에 별도로 기록합니다.
 
-- [Database](/database/) — PostgreSQL, 이력 모델링, 트랜잭션과 인덱스
-- [Commerce](/commerce/) — 상품, 가격, 회원 등 커머스 도메인
-- [Backend](/backend/) — Java, Spring, Batch
-- [Architecture](/architecture/) — 시스템 구조와 기술 선택
-- [Infrastructure](/infrastructure/) — AWS, ECS, 배포와 운영
-- [Case Studies](/case-studies/) — 문제·대안·결정·결과 중심의 사례
+- [Database](../database/README.md) — PostgreSQL, 이력 모델링, 트랜잭션과 인덱스
+- [Commerce](../commerce/README.md) — 상품, 가격, 회원 등 커머스 도메인
+- [Backend](../backend/README.md) — Java, Spring, Batch
+- [Architecture](../architecture/README.md) — 시스템 구조와 기술 선택
+- [Infrastructure](../infrastructure/README.md) — AWS, ECS, 배포와 운영
+- [Case Studies](../case-studies/README.md) — 문제·대안·결정·결과 중심의 사례
 
 ---
 
