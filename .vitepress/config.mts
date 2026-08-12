@@ -22,7 +22,7 @@ export default defineConfig({
     logo: '/logo.svg',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Product View', link: '/resume/' },
+      { text: 'Resume', link: '/resume/' },
       { text: 'Engineering Notes', link: '/getting-started/about-this-site' },
       { text: 'Case Studies', link: '/case-studies/' },
       { text: 'GitHub', link: 'https://github.com/dev-wonny' }

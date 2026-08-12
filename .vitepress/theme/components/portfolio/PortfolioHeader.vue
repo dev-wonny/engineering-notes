@@ -13,7 +13,7 @@ onBeforeUnmount(() => { if (typeof window !== 'undefined') window.removeEventLis
 <template>
   <header class="pf-header">
     <div class="pf-shell pf-header-inner">
-      <a class="pf-mark" :href="withBase(lens === 'developer' ? '/' : '/resume/')" aria-label="WONNY 홈">WONNY<span>.</span></a>
+      <a class="pf-mark" :href="withBase(lens === 'developer' ? '/' : '/resume/portfolio/')" aria-label="WONNY 홈">WONNY<span>.</span></a>
       <button class="pf-menu-button" type="button" :aria-expanded="open" aria-controls="portfolio-menu" @click="open = !open"><span>{{ open ? 'Close' : 'Menu' }}</span></button>
       <div id="portfolio-menu" class="pf-menu" :class="{ 'is-open': open }">
         <nav :aria-label="lens === 'developer' ? 'Engineering navigation' : 'Product navigation'">
@@ -21,10 +21,10 @@ onBeforeUnmount(() => { if (typeof window !== 'undefined') window.removeEventLis
             <a :href="withBase('/#domains')" @click="close">Engineering</a><a :href="withBase('/#engineering-cases')" @click="close">Cases</a><a :href="withBase('/#notes')" @click="close">Notes</a>
           </template>
           <template v-else>
-            <a :href="withBase('/resume/#outcomes')" @click="close">Outcomes</a><a :href="withBase('/resume/#cases')" @click="close">Cases</a><a :href="withBase('/resume/#how-i-work')" @click="close">How I Work</a><a :href="withBase('/resume/#career')" @click="close">Career</a>
+            <a :href="withBase('/resume/portfolio/#outcomes')" @click="close">Outcomes</a><a :href="withBase('/resume/portfolio/#cases')" @click="close">Cases</a><a :href="withBase('/resume/portfolio/#how-i-work')" @click="close">How I Work</a><a :href="withBase('/resume/portfolio/#career')" @click="close">Career</a>
           </template>
         </nav>
-        <div class="pf-menu-actions"><LensSwitch :lens="lens" /><a v-if="lens === 'product'" class="pf-resume-link" :href="withBase('/resume/backend/')">Resume</a></div>
+        <div class="pf-menu-actions"><LensSwitch :lens="lens" /><a v-if="lens === 'product'" class="pf-resume-link" :href="withBase('/resume/')">Resume</a></div>
       </div>
     </div>
   </header>

@@ -1,7 +1,7 @@
 ---
 layout: false
-title: Jeongwon Han · Platform Product
-description: 내부 운영 문제를 자동화, 공통 플랫폼, 정책 구조화로 해결해온 경력과 Product Insight.
+title: 한정원 · Digital Resume
+description: 복잡한 운영을 구조화하고 반복 업무를 자동화·플랫폼으로 전환해온 Backend / Platform Engineer 한정원의 디지털 이력서.
 ---
 
-<ProductHome />
+<ResumeHome />

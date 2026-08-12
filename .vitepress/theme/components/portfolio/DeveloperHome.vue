@@ -23,7 +23,7 @@ import { domains, notes } from '../../data/cases'
             <span class="pf-title-lines is-mobile" aria-hidden="true"><span>운영되는 시스템을</span><span>만들고,</span><span>반복되는 문제를</span><span>구조로 해결합니다.</span></span>
           </h1>
           <p class="pf-hero-lead">광고·게임·커머스에서 백엔드와 플랫폼을 개발해왔습니다.<br>기능 구현에 그치지 않고 데이터, 실행 환경, 배포와 운영 흐름까지<br>함께 보며 문제를 해결합니다.</p>
-          <div class="pf-actions"><a class="pf-button is-primary" href="#engineering-cases">Engineering Case 보기</a><a class="pf-text-link" :href="withBase('/resume/')">Product 관점에서 보기 →</a></div>
+          <div class="pf-actions"><a class="pf-button is-primary" href="#engineering-cases">Engineering Case 보기</a><a class="pf-text-link" :href="withBase('/resume/portfolio/')">Product 관점에서 보기 →</a></div>
         </div>
         <SystemDiagram />
       </section>
@@ -44,7 +44,7 @@ import { domains, notes } from '../../data/cases'
           <FlowDiagram :steps="['Legacy Commerce', 'Domain Mapping', 'Validation', 'New Commerce Platform']" label="Legacy Commerce에서 도메인 매핑과 검증을 거쳐 New Commerce Platform으로 이동" />
         </article>
         <article class="pf-work">
-          <div class="pf-work-copy"><p class="pf-eyebrow">PLATFORM</p><h3>Internal Deeplink Platform</h3><p>외부 링크 서비스 의존을 내부 공통 플랫폼으로 바꾸고 조회와 중복 생성을 각각 개선했습니다.</p><div class="pf-inline-metrics"><span><b>30%↓</b>DynamoDB Access</span><span><b>50%↓</b>Duplicate Link</span></div><a class="pf-text-link" :href="withBase('/resume/#case-deeplink')">Product Story →</a></div>
+          <div class="pf-work-copy"><p class="pf-eyebrow">PLATFORM</p><h3>Internal Deeplink Platform</h3><p>외부 링크 서비스 의존을 내부 공통 플랫폼으로 바꾸고 조회와 중복 생성을 각각 개선했습니다.</p><div class="pf-inline-metrics"><span><b>30%↓</b>DynamoDB Access</span><span><b>50%↓</b>Duplicate Link</span></div><a class="pf-text-link" :href="withBase('/resume/portfolio/#case-deeplink')">Product Story →</a></div>
           <div class="pf-split-flow" role="img" aria-label="Client에서 Redirect API를 거쳐 Local Cache와 DynamoDB로 조회"><span>Client</span><b>→</b><span>Redirect API</span><b>→</b><div><span>Local Cache</span><span>DynamoDB</span></div></div>
         </article>
         <article class="pf-work">
@@ -59,7 +59,7 @@ import { domains, notes } from '../../data/cases'
       </section>
 
       <section id="product-bridge" class="pf-bridge">
-        <div class="pf-shell"><p class="pf-eyebrow">THE NEXT LENS</p><h2>그런데 시스템을 만들다 보니,<br>계속 코드 바깥의 문제가 보였습니다.</h2><div class="pf-questions"><p>왜 이 일을 사람이 반복하고 있지?</p><p>왜 운영자가 개발자를 기다려야 하지?</p><p>왜 같은 데이터인데 시스템마다 기준이 다르지?</p></div><a class="pf-button is-light" :href="withBase('/resume/')">Platform Product View →</a></div>
+        <div class="pf-shell"><p class="pf-eyebrow">THE NEXT LENS</p><h2>그런데 시스템을 만들다 보니,<br>계속 코드 바깥의 문제가 보였습니다.</h2><div class="pf-questions"><p>왜 이 일을 사람이 반복하고 있지?</p><p>왜 운영자가 개발자를 기다려야 하지?</p><p>왜 같은 데이터인데 시스템마다 기준이 다르지?</p></div><a class="pf-button is-light" :href="withBase('/resume/portfolio/')">Platform Product View →</a></div>
       </section>
     </main>
     <PortfolioFooter lens="developer" />

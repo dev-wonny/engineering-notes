@@ -51,7 +51,7 @@ function toggle(index: number) { opened.value = opened.value.includes(index) ? o
 
       <section id="engineering" class="pf-section pf-shell pf-two-column"><SectionHeading eyebrow="10 · ENGINEERING LENS" title="분석은 구현 가능한 검증 단위로 이어져야 합니다" /><div class="pf-engineering-list"><p><span>01</span>재실행 가능한 이관 단위</p><p><span>02</span>원천과 결과를 잇는 추적 키</p><p><span>03</span>환경별 검증 데이터와 판정 기준</p><p><span>04</span>예외를 숨기지 않는 수동 검토 흐름</p></div></section>
 
-      <section id="next" class="pf-next"><div class="pf-shell"><p class="pf-eyebrow">NEXT CASE</p><h2>외부 도구를 내부 공통 플랫폼으로</h2><a class="pf-button is-light" :href="withBase('/resume/#case-deeplink')">Deeplink Story 보기 →</a></div></section>
+      <section id="next" class="pf-next"><div class="pf-shell"><p class="pf-eyebrow">NEXT CASE</p><h2>외부 도구를 내부 공통 플랫폼으로</h2><a class="pf-button is-light" :href="withBase('/resume/portfolio/#case-deeplink')">Deeplink Story 보기 →</a></div></section>
     </main><PortfolioFooter lens="product" />
   </div>
 </template>
