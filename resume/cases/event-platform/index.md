@@ -1,6 +1,6 @@
 ---
 title: Event Platform
- description: 서로 다른 이벤트 유형을 하나의 데이터 모델 제약 안에서 구현하며 대안과 trade-off를 조율한 경험.
+description: 서로 다른 이벤트 유형을 하나의 데이터 모델 제약 안에서 구현하며 대안과 trade-off를 조율한 경험.
 ---
 
 # Event Platform
