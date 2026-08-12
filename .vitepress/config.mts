@@ -6,13 +6,23 @@ export default defineConfig({
   lang: 'ko-KR',
   base: '/engineering-notes/',
   cleanUrls: true,
+  rewrites: {
+    'backend/README.md': 'backend/index.md',
+    'database/README.md': 'database/index.md',
+    'database/temporal-table/README.md': 'database/temporal-table/index.md',
+    'commerce/README.md': 'commerce/index.md',
+    'architecture/README.md': 'architecture/index.md',
+    'infrastructure/README.md': 'infrastructure/index.md',
+    'case-studies/README.md': 'case-studies/index.md',
+    'troubleshooting/README.md': 'troubleshooting/index.md'
+  },
   lastUpdated: true,
   head: [['meta', { name: 'theme-color', content: '#111827' }]],
   themeConfig: {
     logo: '/logo.svg',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Resume', link: '/resume/' },
+      { text: 'Product View', link: '/resume/' },
       { text: 'Engineering Notes', link: '/getting-started/about-this-site' },
       { text: 'Case Studies', link: '/case-studies/' },
       { text: 'GitHub', link: 'https://github.com/dev-wonny' }

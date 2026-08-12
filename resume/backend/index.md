@@ -1,4 +1,4 @@
-# Resume
+# Backend / Platform Engineer Resume
 
 <div class="resume-lead">
 Java/Spring 기반 백엔드 개발을 중심으로 서비스 개발, AWS 환경 구성·배포, 커머스 시스템과 데이터 처리 문제를 해결해 온 Backend / Platform Engineer입니다. 기능 구현에 그치지 않고 운영 구조, 배포, 데이터 정합성, 자동화까지 연결해 문제를 보는 것을 중요하게 생각합니다.
@@ -26,9 +26,9 @@ Java/Spring 기반 백엔드 개발을 중심으로 서비스 개발, AWS 환경
 ### DoubleDown Interactive · Service Development
 
 - 대규모 사용자 서비스의 백엔드 기능을 개발하고 운영했습니다.
-- Deeplink 시스템 자체화를 통해 외부 의존 접근을 약 30% 줄이고 중복 처리를 약 50% 줄였습니다.
-- 광고 시스템 리팩터링으로 클릭률을 약 25% 개선하고 운영 시간을 약 30% 단축했습니다.
-- 이메일 발송 자동화로 반복 운영 업무의 발송 시간을 약 90% 단축했습니다.
+- Deeplink 시스템 자체화 과정에서 Local Cache로 DynamoDB 접근을 약 30% 줄이고, 별도의 중복 생성 방지 구조로 중복 링크를 약 50% 줄였습니다.
+- 광고 정책과 노출 구조 리팩터링 후 광고팀 측정 지표 기준 CTR이 약 25% 증가했고 운영 시간은 약 30% 줄었습니다.
+- 광고 이메일 업무의 대상 추출, Deeplink 생성, 발송 요청, 상태 확인을 자동화해 수작업 소요시간을 약 90% 줄였습니다.
 
 ### AdMax / FSN · R&D
 
@@ -48,8 +48,6 @@ Java/Spring 기반 백엔드 개발을 중심으로 서비스 개발, AWS 환경
 
 ## Engineering Interests
 
-제가 특히 관심을 두는 영역은 다음과 같습니다.
-
 - 서비스와 플랫폼 경계에서 반복되는 문제를 구조화하는 것
 - Batch와 대량 데이터 처리의 실행 모델 및 운영 안정성
 - 커머스 데이터의 이력, 정합성, 마이그레이션
@@ -58,15 +56,13 @@ Java/Spring 기반 백엔드 개발을 중심으로 서비스 개발, AWS 환경
 
 ## Engineering Notes
 
-이력서만으로 설명하기 어려운 설계 판단과 문제 해결 과정은 이 사이트에 별도로 기록합니다.
-
-- [Database](../database/README.md) — PostgreSQL, 이력 모델링, 트랜잭션과 인덱스
-- [Commerce](../commerce/README.md) — 상품, 가격, 회원 등 커머스 도메인
-- [Backend](../backend/README.md) — Java, Spring, Batch
-- [Architecture](../architecture/README.md) — 시스템 구조와 기술 선택
-- [Infrastructure](../infrastructure/README.md) — AWS, ECS, 배포와 운영
-- [Case Studies](../case-studies/README.md) — 문제·대안·결정·결과 중심의 사례
+- [Database](../../database/README.md) — PostgreSQL, 이력 모델링, 트랜잭션과 인덱스
+- [Commerce](../../commerce/README.md) — 상품, 가격, 회원 등 커머스 도메인
+- [Backend](../../backend/README.md) — Java, Spring, Batch
+- [Architecture](../../architecture/README.md) — 시스템 구조와 기술 선택
+- [Infrastructure](../../infrastructure/README.md) — AWS, ECS, 배포와 운영
+- [Case Studies](../../case-studies/README.md) — 문제·대안·결정·결과 중심의 사례
 
 ---
 
-이 페이지는 채용 담당자가 빠르게 경험을 파악할 수 있도록 공개 가능한 내용만 요약한 웹 이력서입니다. 상세 경력과 프로젝트 설명은 지원 시 제출하는 이력서와 함께 확인해 주세요.
+이 페이지는 기존 개발자용 웹 이력서를 공개 가능한 내용으로 보존한 문서입니다.

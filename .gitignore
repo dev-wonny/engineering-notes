@@ -17,3 +17,7 @@ node_modules/
 *.log
 *.tmp
 *~
+
+# Local portfolio QA artifacts
+/portfolio-*.png
+/screenshots/
