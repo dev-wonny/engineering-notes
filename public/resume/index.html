@@ -1,123 +1,711 @@
 <!doctype html>
+<!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>한정원 · Backend / Platform Engineer</title>
-<meta name="description" content="Java/Spring 백엔드와 AWS 서비스 배포·운영, 데이터·정책 검증 경험을 담은 한정원의 이력서" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>한정원 이력서 - Backend / Platform Engineer</title>
 <style>
-:root{--text:#1e293b;--muted:#64748b;--line:#e2e8f0;--bg:#f8fafc;--card:#fff;--accent:#2563eb;--soft:#eff6ff;--dark:#0f172a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:var(--bg);color:var(--text);line-height:1.68}.page{position:relative;width:min(1040px,calc(100% - 32px));margin:40px auto;padding:58px 54px;background:var(--card);box-shadow:0 10px 40px rgba(15,23,42,.05);border-radius:16px}.page:before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(135deg,#1d4ed8,#3b82f6);border-radius:16px 16px 0 0}.top{display:grid;grid-template-columns:120px 1fr;gap:30px;padding-bottom:30px;border-bottom:2px solid var(--line)}.photo{width:120px;height:160px;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#e2e8f0}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.13em;color:var(--accent);margin:0 0 8px}h1{font-size:38px;line-height:1.1;margin:0 0 8px;color:var(--dark)}.role{font-size:19px;font-weight:700;color:var(--accent);margin-bottom:12px}.contact{font-size:14px;color:var(--muted);margin-bottom:16px}.contact a{color:inherit;text-decoration:none}.summary{font-size:15.5px;color:#334155;margin:0 0 8px}.positioning{margin-top:15px;padding:12px 16px;background:var(--soft);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;font-weight:600;color:#1d4ed8;font-size:14px}h2{margin:42px 0 18px;font-size:21px;color:var(--dark);display:flex;align-items:center;gap:12px}h2:after{content:"";height:1px;flex:1;background:linear-gradient(to right,var(--line),transparent)}h3{margin:0;font-size:18px;color:var(--dark)}h4{margin:0 0 6px;font-size:16px;color:var(--dark)}.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.skill{padding:17px;border:1px solid var(--line);border-radius:12px}.skill b{display:block;color:var(--accent);margin-bottom:5px}.company{padding:26px 0;border-bottom:1px solid var(--line)}.company:last-child{border-bottom:0}.company-head{display:flex;justify-content:space-between;gap:18px;align-items:baseline}.period{font-size:13.5px;color:var(--muted)}.company-desc{color:var(--muted);margin:7px 0 15px}.project{margin-top:14px;padding:18px 19px;border:1px solid var(--line);border-radius:12px;background:#fff}.project-title{display:flex;justify-content:space-between;gap:12px;align-items:center}.stack{display:inline-block;margin-top:7px;padding:5px 9px;background:#f8fafc;border:1px solid var(--line);border-radius:6px;font-size:12.5px;color:#475569}.project ul,.company>ul{margin:10px 0 0 19px;padding:0}.project li,.company li{margin:5px 0;color:#475569}.detail{display:inline-flex;margin-top:12px;font-weight:700;font-size:13.5px;color:var(--accent);text-decoration:none}.detail:hover{text-decoration:underline}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:center;margin-top:14px;padding:12px;border-radius:10px;background:#f8fafc;border:1px solid var(--line);font-size:12px;color:#334155;text-align:center}.flow span{padding:8px 5px;background:#fff;border:1px solid var(--line);border-radius:8px}.flow b{color:var(--accent)}.metric{font-weight:700;color:var(--dark)}.personal{padding:18px;border:1px solid var(--line);border-radius:12px}.toolbar{position:fixed;right:22px;bottom:22px;background:rgba(255,255,255,.92);padding:7px;border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08)}button{border:0;border-radius:7px;padding:9px 13px;background:var(--dark);color:#fff;font-weight:700;cursor:pointer}.evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.evidence div{min-height:92px;padding:14px;border-radius:10px;background:linear-gradient(145deg,#eff6ff,#f8fafc);border:1px solid #dbeafe}.evidence b{display:block;color:#1d4ed8;font-size:13px;margin-bottom:4px}.evidence span{font-size:12.5px;color:#475569}.footer{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.footer a{color:var(--accent);text-decoration:none;font-weight:700}@media(max-width:720px){.page{width:100%;margin:0;padding:30px 20px;border-radius:0}.top{grid-template-columns:1fr}.photo{margin:auto}.skills{grid-template-columns:1fr}.company-head,.project-title{align-items:flex-start;flex-direction:column;gap:3px}.flow{grid-template-columns:1fr}.evidence{grid-template-columns:1fr}}@media print{body{background:#fff}.page{width:100%;margin:0;box-shadow:none;padding:32px}.toolbar,.detail{display:none}.company,.project,.skill{break-inside:avoid}}
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --text: #1e293b;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --accent: #2563eb;
+        --accent-gradient: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+        --accent-soft: #eff6ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          "Apple SD Gothic Neo",
+          "Noto Sans KR",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.68;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        position: relative;
+        width: 100%;
+        max-width: 1040px;
+        margin: 48px auto;
+        padding: 64px 56px;
+        background: var(--card);
+        box-shadow: 0 10px 40px rgba(15, 23, 42, 0.05);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .page::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--accent-gradient);
+      }
+
+      .top {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 36px;
+        align-items: start;
+        padding-bottom: 32px;
+        border-bottom: 2px solid var(--line);
+      }
+
+      .photo {
+        width: 120px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: #f8fafc;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      }
+
+      .name {
+        font-family: "Outfit", sans-serif;
+        font-size: 38px;
+        line-height: 1.1;
+        font-weight: 800;
+        margin: 0 0 8px;
+        letter-spacing: -0.03em;
+        color: #0f172a;
+      }
+
+      .role {
+        font-family: "Outfit", sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 12px;
+        letter-spacing: -0.01em;
+      }
+
+      .contact {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+
+      .summary {
+        font-size: 15.5px;
+        color: #334155;
+        margin: 0;
+        max-width: 780px;
+      }
+
+      .positioning {
+        margin-top: 18px;
+        padding: 12px 16px;
+        background: var(--accent-soft);
+        border-left: 4px solid var(--accent);
+        border-radius: 0 8px 8px 0;
+        font-weight: 600;
+        color: var(--accent);
+        font-size: 14.5px;
+      }
+
+      h2 {
+        font-family: "Outfit", sans-serif;
+        margin: 48px 0 20px;
+        font-size: 21px;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      h2::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(to right, var(--line), transparent);
+      }
+
+      h3 {
+        font-family: "Outfit", sans-serif;
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: -0.01em;
+      }
+
+      h4 {
+        font-family: "Outfit", sans-serif;
+        margin: 20px 0 8px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #334155;
+      }
+
+      ul {
+        margin: 8px 0 0 20px;
+        padding: 0;
+      }
+
+      li {
+        margin: 6px 0;
+        color: #475569;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .metric {
+        padding: 14px 18px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 14.5px;
+        color: var(--text);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .metric:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.08);
+        border-color: #bfdbfe;
+      }
+
+      .metric::before {
+        content: "✓";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-radius: 50%;
+        font-size: 11px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .skill-card {
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.08);
+        border-color: #bfdbfe;
+      }
+
+      .skill-title {
+        font-family: "Outfit", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+
+      .company {
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .company:last-child {
+        border-bottom: 0;
+      }
+
+      .company-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: baseline;
+      }
+
+      .period {
+        flex: 0 0 auto;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Outfit", sans-serif;
+      }
+
+      .company-desc {
+        color: var(--muted);
+        margin: 8px 0 16px;
+        font-size: 15px;
+      }
+
+      .stack {
+        margin-top: 14px;
+        font-size: 13.5px;
+        color: #475569;
+        background: #f8fafc;
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: 1px solid var(--line);
+        display: inline-block;
+      }
+
+      .stack strong {
+        color: #0f172a;
+      }
+
+      .project {
+        margin-top: 16px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .project:hover {
+        border-color: #bfdbfe;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      }
+
+      .project-title {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .project-title strong {
+        font-family: "Outfit", sans-serif;
+        font-size: 16px;
+        color: #0f172a;
+      }
+
+      .project-title .period {
+        margin-left: 8px;
+        font-size: 13.5px;
+      }
+
+      .project-body {
+        margin-top: 16px;
+      }
+
+      .label {
+        margin-top: 14px;
+        font-weight: 700;
+        color: #0f172a;
+        font-size: 14.5px;
+      }
+
+      .small {
+        color: var(--muted);
+        font-size: 13.5px;
+        font-weight: 500;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+      }
+
+      .toolbar {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        display: flex;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 8px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        z-index: 100;
+      }
+
+      button {
+        border: 0;
+        padding: 10px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        color: #fff;
+        background: #0f172a;
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        transition:
+          opacity 0.2s ease,
+          transform 0.1s ease;
+      }
+
+      button:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      .note {
+        margin-top: 32px;
+        padding: 16px 20px;
+        background: #fffdf5;
+        border: 1px solid #fef08a;
+        border-radius: 10px;
+        color: #854d0e;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      @media print {
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        body {
+          background: var(--bg) !important;
+          padding: 20px 0 !important;
+        }
+
+        .page {
+          margin: 0 auto !important;
+          padding: 48px 42px !important;
+          max-width: 880px !important;
+          background: var(--card) !important;
+          box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05) !important;
+          border-radius: 12px !important;
+          border: 1px solid var(--line) !important;
+        }
+
+        .page::before {
+          display: block !important;
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 6px !important;
+          background: var(--accent-gradient) !important;
+        }
+
+        .toolbar {
+          display: none !important;
+        }
+
+        .company,
+        .project,
+        .skill-card,
+        .metric {
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          margin: 0;
+          padding: 28px 20px;
+          border-radius: 0;
+        }
+
+        .top {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .photo {
+          margin: 0 auto;
+        }
+
+        .metrics,
+        .skills {
+          grid-template-columns: 1fr;
+        }
+
+        .company-head,
+        .project-title {
+          flex-direction: column;
+          gap: 4px;
+          align-items: flex-start;
+        }
+      }
+
+      .project-media {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .project-media-item {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #f8fafc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      }
+      .project-media-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+      .project-media-item img:hover {
+        transform: scale(1.02);
+      }
+      .project-media-title {
+        padding: 8px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        background: #ffffff;
+        border-top: 1px solid var(--line);
+        text-align: center;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        transition:
+          color 0.2s ease,
+          text-decoration 0.2s ease;
+      }
+      a:hover {
+        color: #1d4ed8;
+        text-decoration: underline;
+      }
+    
+      .detail-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 12px;
+        padding: 7px 11px;
+        border: 1px solid #bfdbfe;
+        border-radius: 8px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .detail-link:hover { text-decoration: none; background:#dbeafe; }
+      .compact-list li { margin: 4px 0; }
+      .thought { margin-top:12px; padding:10px 12px; border-left:3px solid #94a3b8; background:#f8fafc; color:#475569; font-size:14px; }
+      .tagline { font-weight:700; color:#0f172a; }
 </style>
 </head>
 <body>
 <main class="page">
 <header class="top">
-<img class="photo" alt="한정원 프로필" src="https://avatars.githubusercontent.com/u/161826579?v=4" />
+<div><img alt="한정원 프로필 사진" class="photo" src="./assets/profile.jpg"/></div>
 <div>
-<p class="eyebrow">BACKEND · PLATFORM · CLOUD OPERATIONS</p>
-<h1>한정원</h1>
+<h1 class="name">한정원</h1>
 <div class="role">Backend / Platform Engineer</div>
-<div class="contact"><a href="mailto:devwonny@gmail.com">devwonny@gmail.com</a> · 010-9475-0201 · <a href="https://github.com/dev-wonny">github.com/dev-wonny</a></div>
-<p class="summary">Java/Spring 기반 백엔드 개발과 AWS 환경의 서비스 배포·운영을 경험해 온 엔지니어입니다. 새로운 시스템을 접하면 코드뿐 아니라 실제 데이터, 실행 환경, 로그와 운영 흐름을 함께 확인하며 문제를 파악합니다.</p>
-<p class="summary">정책이나 요구사항이 명확하지 않은 상황에서도 근거를 찾아 구조화하고, 기술적 대안과 trade-off를 설명해 이해관계자와 합의 가능한 형태로 조정하는 방식으로 일해왔습니다.</p>
-<div class="positioning">코드가 동작하는지보다 실제 데이터와 운영 결과가 정책과 일치하는지를 확인하는 데 익숙합니다.</div>
+<div class="contact">Email. devwonny@gmail.com / Mobile. 010-9475-0201 / GitHub. github.com/dev-wonny</div>
+<p class="summary">
+      Java/Spring 기반 백엔드 개발과 AWS 환경의 서비스 배포·운영을 경험해 온 엔지니어입니다.<br/>
+      새로운 시스템을 접하면 코드뿐 아니라 실제 데이터, 실행 환경, 로그와 운영 흐름을 함께 확인하며 문제를 파악합니다.<br/><br/>
+      정책이나 요구사항이 명확하지 않은 상황에서도 근거를 찾아 구조화하고, 기술적 대안과 trade-off를 설명해 이해관계자와 합의 가능한 형태로 조정하는 방식으로 일해왔습니다.
+    </p>
 </div>
 </header>
-
-<h2>CORE EXPERIENCE</h2>
-<section class="skills">
-<div class="skill"><b>AWS / Cloud</b>EC2, ECS(EC2/Fargate), ALB/ELB, S3, CloudFront, Route53, CloudWatch, DynamoDB</div>
-<div class="skill"><b>Backend</b>Java, Spring, Spring Boot, Spring Batch, MyBatis, JPA, QueryDSL</div>
-<div class="skill"><b>Data</b>PostgreSQL, MySQL, MSSQL, Oracle, Redis, DynamoDB</div>
-<div class="skill"><b>Delivery / Operations</b>Docker, Airflow, CodePipeline, CodeBuild, CodeDeploy, Jenkins, ELK</div>
-<div class="skill"><b>Local Testing</b>Docker, LocalStack, PostgreSQL</div>
+<section>
+<h2>Core Experience</h2>
+<div class="skills">
+<div class="skill-card"><div class="skill-title">AWS / Cloud</div><div>EC2 · ECS(EC2/Fargate) · ALB/ELB · S3 · CloudFront · Route53 · CloudWatch · DynamoDB</div></div>
+<div class="skill-card"><div class="skill-title">Backend</div><div>Java · Spring · Spring Boot · Spring Batch · MyBatis · JPA · QueryDSL</div></div>
+<div class="skill-card"><div class="skill-title">Data</div><div>PostgreSQL · MySQL · MSSQL · Oracle · Redis · DynamoDB</div></div>
+<div class="skill-card"><div class="skill-title">Delivery / Operations</div><div>Docker · Airflow · CodePipeline · CodeBuild · CodeDeploy · Jenkins · ELK</div></div>
+<div class="skill-card"><div class="skill-title">Local Testing</div><div>Docker · LocalStack · PostgreSQL</div></div>
+</div>
 </section>
-
-<h2>EXPERIENCE</h2>
-<section class="company">
-<div class="company-head"><div><h3>DS GLOBAL</h3><div class="period">Backend Engineer · 재직 중</div></div></div>
+<section>
+<h2>Experience</h2>
+<article class="company">
+<div class="company-head"><h3>DS GLOBAL / Backend Engineer</h3><div class="period">2026.01 ~ 재직중</div></div>
 <p class="company-desc">레거시 쇼핑몰의 신규 커머스 플랫폼 전환 과정에서 백엔드 개발, AWS 실행 환경, 데이터 마이그레이션, 이미지 운영 정책 및 Batch 시스템을 담당하고 있습니다.</p>
-
-<article class="project">
-<div class="project-title"><h4>Event Platform</h4><a class="detail" href="./cases/event-platform/">상세보기 →</a></div>
-<span class="stack">Spring Boot · PostgreSQL · AWS ECS(EC2) · ALB · ELK</span>
-<ul>
+<div class="project">
+<div class="project-title"><strong>Event Platform</strong></div>
+<div class="small">Spring Boot · PostgreSQL · AWS ECS(EC2) · ALB · ELK</div>
+<ul class="compact-list">
 <li>출석·랜덤 리워드·응모권 이벤트 플랫폼 개발</li>
-<li>이벤트 유형별 도메인 차이를 고려한 모델을 제안했으며, 조직의 최종 데이터 모델 제약을 수용해 구현</li>
+<li>이벤트 유형별 도메인 차이를 고려한 모델을 제안하고, 조직의 최종 데이터 모델 제약을 수용해 구현</li>
 <li>기술적 대안과 운영 제약을 반복적으로 논의하며 최종 구조로 조정</li>
 <li>ECS(EC2) 환경 배포 및 운영</li>
-<li>MAU 약 <span class="metric">16만</span>, DAU 약 <span class="metric">9,700</span> 환경에서 운영</li>
+<li>MAU 약 <strong>16만</strong>, DAU 약 <strong>9,700</strong> 환경에서 운영</li>
 </ul>
-<div class="evidence"><div><b>3 Event Types</b><span>출석 · 랜덤 리워드 · 응모권</span></div><div><b>MAU 160K</b><span>실제 운영 환경</span></div><div><b>Design Trade-off</b><span>제안 구조와 조직 제약을 조율</span></div></div>
-</article>
-
-<article class="project">
-<div class="project-title"><h4>Batch Policy Validation & Runtime</h4><a class="detail" href="./cases/batch-validation/">상세보기 →</a></div>
-<span class="stack">Spring Batch · Airflow · AWS EC2 · ECS Fargate · PostgreSQL · Docker · LocalStack</span>
-<ul>
+<a class="detail-link" href="./cases/event-platform/">상세보기 →</a>
+<div class="project-media"><div class="project-media-item">
+<img alt="돌쇠네농산물 생일 이벤트 화면" src="./assets/event.webp"/>
+<div class="project-media-title">
+                    돌쇠네농산물 생일 이벤트 화면
+                  </div>
+</div><div class="project-media-item">
+<img alt="돌쇠네농산물 메인 쇼핑몰 화면" src="./assets/shop.webp"/>
+<div class="project-media-title">
+                    돌쇠네농산물 메인 쇼핑몰 화면
+                  </div>
+</div><div class="project-media-item">
+<img alt="AWS 배포 인프라 아키텍처" src="./assets/aws.webp"/>
+<div class="project-media-title">
+                    AWS 배포 인프라 아키텍처
+                  </div>
+</div></div>
+</div>
+<div class="project">
+<div class="project-title"><strong>Batch Policy Validation &amp; Runtime</strong></div>
+<div class="small">Spring Batch · Airflow · AWS EC2 · ECS Fargate · PostgreSQL · Docker · LocalStack</div>
+<ul class="compact-list">
 <li>기존 및 AI 기반 Batch 구현을 인수해 실제 데이터와 도메인 정책 기준으로 검증·수정</li>
 <li>주문·회원·통계 집계 조건과 재실행·Backfill 시 멱등성 검증</li>
 <li>비용을 고려해 EC2에 Apache Airflow를 직접 구성해 사용</li>
 <li>Spring Batch Job을 ECS Fargate Task로 실행하고 Airflow에서 실행 결과 확인</li>
 <li>Docker, PostgreSQL, LocalStack 기반 로컬 검증 환경 구성</li>
 </ul>
-<div class="flow"><span>Airflow<br>EC2</span><b>→</b><span>ECS RunTask</span><b>→</b><span>Fargate<br>Spring Batch</span></div>
-</article>
-
-<article class="project">
-<div class="project-title"><h4>Legacy Image Migration & Policy</h4><a class="detail" href="./cases/image-migration/">상세보기 →</a></div>
-<span class="stack">MSSQL · PostgreSQL · S3 · CloudFront</span>
-<ul>
+<a class="detail-link" href="./cases/batch-validation/">상세보기 →</a>
+</div>
+<div class="project">
+<div class="project-title"><strong>Legacy Image Migration &amp; Policy</strong></div>
+<div class="small">MSSQL · PostgreSQL · S3 · CloudFront</div>
+<ul class="compact-list">
 <li>Weed 레거시 DB와 실제 화면을 대조해 테이블·조건별 이미지 저장·노출 규칙 역추적</li>
 <li>기획자와 보존 대상 범위를 정하고 DB 기반 이미지 백업 및 마이그레이션 스크립트 작성</li>
-<li>원본 이미지 <span class="metric">15,736건</span>, 생성 결과 <span class="metric">73,401건</span>, HTML URL 치환 <span class="metric">5,053건</span> 검증</li>
+<li>원본 이미지 <strong>15,736건</strong>, 생성 결과 <strong>73,401건</strong>, HTML URL 치환 <strong>5,053건</strong> 검증</li>
 <li>쿠팡·토스·네이버 사례를 비교한 뒤 현재 시스템에서 적용 가능한 이미지 운영 정책 제안</li>
 <li>Temp 저장, 원본 보존, 리사이징, 경로·파일명 기준 정리</li>
 </ul>
-<div class="evidence"><div><b>15,736</b><span>원본 이미지</span></div><div><b>73,401</b><span>생성 결과</span></div><div><b>5,053</b><span>HTML URL 치환</span></div></div>
-</article>
-
-<article class="project">
-<div class="project-title"><h4>Commerce Data Migration</h4><a class="detail" href="./cases/commerce/">상세보기 →</a></div>
-<span class="stack">MSSQL · PostgreSQL</span>
-<ul>
-<li>Weed와 발주모아 데이터를 신규 플랫폼으로 통합하며 <span class="metric">1:1, 1:N, N:1</span> 매핑 관계 분석</li>
+<a class="detail-link" href="./cases/image-migration/">상세보기 →</a>
+</div>
+<div class="project">
+<div class="project-title"><strong>Commerce Data Migration</strong></div>
+<div class="small">MSSQL · PostgreSQL</div>
+<ul class="compact-list">
+<li>Weed와 발주모아 데이터를 신규 플랫폼으로 통합하며 <strong>1:1, 1:N, N:1 매핑 관계</strong> 분석</li>
 <li>사업자번호, 업체명, 상품코드 기준으로 데이터 매핑 규칙과 예외 조건 정리</li>
 <li>고객 노출 상품과 공급 상품의 도메인 의미가 다름을 분석하고 분리 모델 제안</li>
 <li>최종 통합 모델의 제약을 수용하되, 오픈마켓·광고 연동 시 발생 가능한 식별자 충돌 리스크를 문서화</li>
 <li>DEV/STG 단계 데이터 정합성 검증</li>
 </ul>
-<div class="flow"><span>Weed<br>판매 상품</span><b>↔</b><span>Mapping Rules</span><b>↔</b><span>발주모아<br>공급 상품</span></div>
+<a class="detail-link" href="./cases/commerce/">상세보기 →</a>
+</div>
+</article>
+<article class="company">
+<div class="company-head"><h3>Future Platform / Service Development Team Lead</h3><div class="period">2025.06 ~ 2025.12</div></div>
+<ul class="compact-list">
+<li>Java 8 / Spring 4.x / MyBatis 기반 공공기관 백엔드 개발</li>
+<li>JBoss EAP 7.4 환경 배포 및 AnyID 기반 통합로그인 SSO 개발</li>
+<li>폐쇄망 환경 Docker / Jenkins / Nexus 기반 개발 환경 정비</li>
+<li>신규 개발 환경 구성 기간 약 <strong>2주 단축</strong></li>
+<li>개발·기획·사업 관계자 간 요구사항 조율</li>
+</ul>
+</article>
+<article class="company">
+<div class="company-head"><h3>DoubleDown Interactive / Service Development Team · Manager</h3><div class="period">2022.10 ~ 2024.04</div></div>
+<div class="project">
+<div class="project-title"><strong>AWS / Backend Operations</strong></div>
+<ul class="compact-list">
+<li>EC2/ECS 기반 서비스 환경 생성·배포 및 운영</li>
+<li>배포 후 서비스 상태와 애플리케이션 로그 확인</li>
+<li>글로벌 서비스 운영 이슈 대응</li>
+</ul>
+</div>
+<div class="project">
+<div class="project-title"><strong>Internal Deeplink Platform</strong></div>
+<div class="small">Java · Spring · DynamoDB · Redis · ECS</div>
+<ul class="compact-list">
+<li>외부 URL 서비스에 의존하던 Deeplink 기능을 내부 플랫폼으로 전환</li>
+<li>Local Cache 적용으로 DynamoDB 접근량 약 <strong>30% 감소</strong></li>
+<li>중복 링크 약 <strong>50% 감소</strong></li>
+</ul>
+</div>
+<div class="project">
+<div class="project-title"><strong>Operation Automation</strong></div>
+<ul class="compact-list">
+<li>사이트별 수동 이메일 업무를 Spring Batch로 자동화해 작업 시간 약 <strong>90% 감소</strong></li>
+<li>광고 로직 구조화 및 운영 개선</li>
+<li>광고팀 측정 지표 기준 CTR 약 <strong>25% 증가</strong></li>
+</ul>
+</div>
+</article>
+<article class="company">
+<div class="company-head"><h3>AdMax / FSN · R&amp;D Team · Manager</h3><div class="period">2020.01 ~ 2022.08</div></div>
+<ul class="compact-list">
+<li>광고 Tracking 및 FDS 시스템 개발·운영</li>
+<li>약 12대 서버의 요청·클릭 트래픽 분석</li>
+<li>불필요 요청 약 <strong>20% 감소</strong></li>
+<li>Scale-up / Scale-out을 통해 AWS 인프라 비용 약 <strong>20% 절감</strong></li>
+<li>외부 플랫폼 데이터 자동 수집 및 운영 알림 연동</li>
+</ul>
 </article>
 </section>
-
-<section class="company">
-<div class="company-head"><div><h3>Future Platform</h3><div class="period">Service Development Team Lead</div></div></div>
-<ul>
-<li>Java 8 / Spring 4.x / MyBatis 기반 공공기관 백엔드 개발</li><li>JBoss EAP 7.4 환경 배포</li><li>AnyID 기반 통합로그인 SSO 개발</li><li>폐쇄망 환경 Docker / Jenkins / Nexus 기반 개발 환경 정비</li><li>신규 개발 환경 구성 기간 약 <span class="metric">2주 단축</span></li><li>개발·기획·사업 관계자 간 요구사항 조율</li>
+<section>
+<h2>Personal Project</h2>
+<div class="project">
+<div class="project-title"><strong>Coopang — MSA Commerce Platform</strong></div>
+<div class="small">Spring Boot · Kafka · Redis · PostgreSQL · Docker · AWS · Grafana · Loki</div>
+<ul class="compact-list">
+<li>MSA 기반 주문 플랫폼 개인 프로젝트</li>
+<li>Kafka 기반 비동기 연동</li>
+<li>Grafana / Loki 기반 모니터링</li>
+<li>Docker 기반 로컬 통합 테스트 환경 구성</li>
 </ul>
+<p><a href="https://github.com/dev-wonny/coopang" target="_blank">github.com/dev-wonny/coopang</a></p>
+<div class="project-media"><div class="project-media-item">
+<img alt="MSA 주문 및 모니터링 시스템 아키텍처" src="./assets/msa.webp"/>
+<div class="project-media-title">
+                  MSA 주문 및 모니터링 시스템 아키텍처
+                </div>
+</div></div>
+</div>
 </section>
-
-<section class="company">
-<div class="company-head"><div><h3>DoubleDown Interactive</h3><div class="period">Service Development Team · Manager</div></div></div>
-<article class="project"><h4>AWS / Backend Operations</h4><ul><li>EC2/ECS 기반 서비스 환경 생성·배포 및 운영</li><li>배포 후 서비스 상태와 애플리케이션 로그 확인</li><li>글로벌 서비스 운영 이슈 대응</li></ul></article>
-<article class="project"><h4>Internal Deeplink Platform</h4><span class="stack">Java · Spring · DynamoDB · Redis · ECS</span><ul><li>외부 URL 서비스에 의존하던 Deeplink 기능을 내부 플랫폼으로 전환</li><li>Local Cache 적용으로 DynamoDB 접근량 약 <span class="metric">30% 감소</span></li><li>중복 링크 약 <span class="metric">50% 감소</span></li></ul></article>
-<article class="project"><h4>Operation Automation</h4><ul><li>사이트별 수동 이메일 업무를 Spring Batch로 자동화해 작업 시간 약 <span class="metric">90% 감소</span></li><li>광고 로직 구조화 및 운영 개선</li><li>광고팀 측정 지표 기준 CTR 약 <span class="metric">25% 증가</span></li></ul></article>
+<section>
+<h2>Education</h2>
+<div class="project">
+<div class="project-title"><strong>한성대학교</strong></div>
+<p>행정학과 주전공 · 멀티미디어공학과 부전공<br/>2016년 졸업 · 3.63 / 4.0</p>
+</div>
 </section>
-
-<section class="company">
-<div class="company-head"><div><h3>AdMax / FSN</h3><div class="period">R&D Team · Manager</div></div></div>
-<ul><li>광고 Tracking 및 FDS 시스템 개발·운영</li><li>약 12대 서버의 요청·클릭 트래픽 분석</li><li>불필요 요청 약 <span class="metric">20% 감소</span></li><li>Scale-up / Scale-out을 통해 AWS 인프라 비용 약 <span class="metric">20% 절감</span></li><li>외부 플랫폼 데이터 자동 수집 및 운영 알림 연동</li></ul>
-</section>
-
-<h2>PERSONAL PROJECT</h2>
-<section class="personal"><h3>Coopang — MSA Commerce Platform</h3><span class="stack">Spring Boot · Kafka · Redis · PostgreSQL · Docker · AWS · Grafana · Loki</span><ul><li>MSA 기반 주문 플랫폼 개인 프로젝트</li><li>Kafka 기반 비동기 연동</li><li>Grafana / Loki 기반 모니터링</li><li>Docker 기반 로컬 통합 테스트 환경 구성</li></ul><p><a class="detail" href="https://github.com/dev-wonny/coopang">GitHub →</a></p></section>
-
-<h2>EDUCATION</h2>
-<section class="personal"><h3>한성대학교</h3><p>행정학과 주전공 · 멀티미디어공학과 부전공<br>2016년 졸업 · 3.63 / 4.0</p></section>
-
-<div class="footer">상세 사례에서는 실제 데이터, 판단 근거, 검증 흐름과 구조를 더 자세히 설명합니다.</div>
 </main>
-<div class="toolbar"><button onclick="window.print()">PDF 저장</button></div>
+<div class="toolbar">
+<button onclick="window.print()">PDF 저장</button>
+</div>
 </body>
 </html>
