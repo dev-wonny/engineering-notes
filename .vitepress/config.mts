@@ -17,7 +17,41 @@ export default defineConfig({
     'troubleshooting/README.md': 'troubleshooting/index.md'
   },
   lastUpdated: true,
-  head: [['meta', { name: 'theme-color', content: '#111827' }]],
+  head: [
+    ['meta', { name: 'theme-color', content: '#111827' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js' }],
+    ['script', {}, `(function () {
+      let scheduled = false;
+      function renderMermaid() {
+        scheduled = false;
+        if (!window.mermaid) return;
+        const blocks = document.querySelectorAll('.language-mermaid');
+        if (!blocks.length) return;
+        blocks.forEach((block) => {
+          if (block.dataset.mermaidConverted === 'true') return;
+          const code = block.querySelector('code');
+          if (!code) return;
+          const diagram = document.createElement('div');
+          diagram.className = 'mermaid';
+          diagram.textContent = code.textContent || '';
+          block.dataset.mermaidConverted = 'true';
+          block.replaceWith(diagram);
+        });
+        window.mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'strict' });
+        window.mermaid.run({ querySelector: '.mermaid:not([data-processed])' }).catch(console.error);
+      }
+      function scheduleRender() {
+        if (scheduled) return;
+        scheduled = true;
+        setTimeout(renderMermaid, 50);
+      }
+      window.addEventListener('DOMContentLoaded', function () {
+        scheduleRender();
+        new MutationObserver(scheduleRender).observe(document.body, { childList: true, subtree: true });
+      });
+      window.addEventListener('load', scheduleRender);
+    })();`]
+  ],
   themeConfig: {
     logo: '/logo.svg',
     nav: [
