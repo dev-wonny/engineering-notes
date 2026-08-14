@@ -20,7 +20,7 @@
 <div class="project-title"><strong>Legacy Image Migration &amp; Image Delivery Policy</strong><span class="period">2026.07</span></div>
 <div class="small">MSSQL · PostgreSQL · AWS S3 · CloudFront</div>
 <div class="ps">
-<div><b>문제</b><p>Weed 레거시는 테이블과 조건마다 이미지 저장 경로와 화면 노출 규칙이 달라 DB만으로 실제 이관 대상을 판단하기 어려웠고, 신규 플랫폼의 이미지 업로드·보관·Resize·전달 기준도 정리되어 있지 않았습니다.</p></div>
+<div><b>문제</b><p>레거시 커머스 시스템은 이미지 저장 경로와 노출 규칙이 테이블·조건별로 달라 실제 이관 대상을 DB만으로 판단하기 어려웠고, 신규 플랫폼 역시 업로드·보관·Resize·전달 정책이 정리되어 있지 않았습니다.</p></div>
 <div><b>판단</b><p>실제 화면과 DB 데이터를 대조해 레거시 사용 규칙을 역추적하고, 이관 과정에서 확인한 기준을 신규 이미지 저장·전달 정책까지 연결해야 한다고 판단했습니다.</p></div>
 <div><b>한 일</b><ul class="compact-list"><li>상품·상세·배너·쿠폰 등 이미지 유형별 DB 데이터와 실제 화면 노출 결과 비교</li><li>기획자와 보존 대상 범위를 확정하고 DB 기반 백업 데이터 및 마이그레이션 스크립트 작성</li><li>원본 <strong>15,736건</strong>, 결과 이미지 <strong>73,401건</strong>, HTML URL 치환 <strong>5,053건</strong> 검증</li><li>마이그레이션용 경로와 장기 운영용 이미지 경로 분리</li><li>Temp → 도메인 생성 후 운영 경로 이동, UUID 기반 파일명·URL 규칙, 원본 보존 정책 정리</li><li>대표 이미지 기준 <strong>1000px / 600px / 100px Resize</strong>, 비율 유지, 확대 금지 정책 정리</li><li>쿠팡·네이버·토스 사례를 비교해 현재 시스템과 외부 개발사가 적용 가능한 수준으로 정책 조정</li><li>Resize 처리 방식 논의에서 Lambda 기반 온디맨드 처리와 예상 호출량·비용 구조 검토</li></ul></div>
 <div><b>결과</b><p>암묵적인 레거시 이미지 규칙을 명시적인 마이그레이션 기준과 신규 이미지 운영 정책으로 전환했습니다.</p></div>
