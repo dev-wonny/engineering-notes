@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Resume
-      link: /resume/
+      link: /resume/index.html
     - theme: alt
       text: Engineering Notes
       link: /getting-started/about-this-site
