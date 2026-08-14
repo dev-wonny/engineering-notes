@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev .",
-    "docs:build": "vitepress build .",
+    "docs:build": "vitepress build . && cp -a public/. .vitepress/dist/ && test -f .vitepress/dist/resume/index.html && test -f .vitepress/dist/resume/sections/ds-current.html && test -f .vitepress/dist/resume/sections/personal.html",
     "docs:preview": "vitepress preview ."
   },
   "devDependencies": {
