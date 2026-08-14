@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
 import './custom.css'
 import './portfolio.css'
+import './product-cases.css'
 import './resume.css'
 
 import DeveloperHome from './components/portfolio/DeveloperHome.vue'
