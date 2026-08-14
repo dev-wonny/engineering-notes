@@ -24,7 +24,7 @@ onBeforeUnmount(() => { if (typeof window !== 'undefined') window.removeEventLis
             <a :href="withBase('/resume/portfolio/#outcomes')" @click="close">Outcomes</a><a :href="withBase('/resume/portfolio/#cases')" @click="close">Cases</a><a :href="withBase('/resume/portfolio/#how-i-work')" @click="close">How I Work</a><a :href="withBase('/resume/portfolio/#career')" @click="close">Career</a>
           </template>
         </nav>
-        <div class="pf-menu-actions"><LensSwitch :lens="lens" /><a v-if="lens === 'product'" class="pf-resume-link" :href="withBase('/resume/')" target="_self">Resume</a></div>
+        <div class="pf-menu-actions"><LensSwitch :lens="lens" /><a v-if="lens === 'product'" class="pf-resume-link" :href="withBase('/resume')" target="_self">Resume</a></div>
       </div>
     </div>
   </header>
