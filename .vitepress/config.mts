@@ -56,7 +56,7 @@ export default defineConfig({
     logo: '/logo.svg',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Resume', link: '/resume/portfolio/' },
+      { text: 'Resume', link: '/resume/backend/' },
       { text: 'Engineering Notes', link: '/getting-started/about-this-site' },
       { text: 'Case Studies', link: '/case-studies/' },
       { text: 'GitHub', link: 'https://github.com/dev-wonny' }
