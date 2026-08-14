@@ -65,8 +65,6 @@ flowchart TD
     API --> JV
 ```
 
-Mermaid가 렌더링되지 않는 환경을 위한 동일 구조입니다.
-
 ```text
 CodeBuild / CodeDeploy
         ↓
