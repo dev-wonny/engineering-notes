@@ -6,14 +6,14 @@ outline: [2, 3]
 
 # 한정원
 
-**Backend / Platform Engineer**  
+**Backend Engineer**  
 **희망 도메인: 1순위 Service Platform · 2순위 API Platform**
 
 Email. devwonny@gmail.com · GitHub. [github.com/dev-wonny](https://github.com/dev-wonny)
 
 ![한정원 프로필](https://dev-wonny.github.io/engineering-notes/resume/assets/profile.jpg)
 
-DAU 약 **123만** 규모의 글로벌 게임 서비스부터 한국·대만 광고 플랫폼, 공공 시스템, 커머스 플랫폼까지 다양한 환경에서 백엔드 서비스를 개발하고 운영했습니다.
+DAU 약 **123만** 규모의 글로벌 게임 서비스부터 한국·대만에서 운영되는 광고 Tracking 서비스, 공공 시스템, 커머스 플랫폼까지 다양한 환경에서 백엔드 서비스를 개발하고 운영했습니다.
 
 기능 구현뿐 아니라 AWS 배포·운영, Batch, 데이터 처리, 로그 분석, Admin/백오피스와 반복 업무 자동화까지 서비스가 실제로 동작하는 흐름을 함께 다뤄왔습니다.
 
@@ -35,20 +35,22 @@ DAU 약 **123만** 규모의 글로벌 게임 서비스부터 한국·대만 광
 - Deeplink / Short URL 기능을 외부 서비스에서 내부 플랫폼으로 전환
 - 운영자가 직접 사용할 수 있는 Admin / Self-service 기능 개발
 - Spring Batch 기반 반복 이메일 업무 자동화로 수작업 시간 약 **90% 감소**
+- 게임 레벨·등급 정책 변경을 일부 사용자 대상 A/B 테스트로 검증한 뒤 유효한 변경을 확대 적용
+- ELK 및 광고 Tracking 서버의 Request Pattern·로그를 활용해 운영 이슈와 트래픽 패턴 분석
 - CodePipeline · CodeBuild · CodeDeploy · Jenkins 기반 배포 및 운영 경험
 
 ### API Platform
 
 - DAU 약 **123만** 글로벌 게임 서비스의 Java/Spring Backend API 개발·운영
-- 게임별 상태와 정책을 클라이언트 요구에 맞춰 API로 제공
-- 게임 레벨·등급 정책 변경 시 일부 사용자 대상 A/B 테스트 후 결과에 따라 확대 적용
-- 실제 서비스 요청과 로그를 확인하며 변경 영향 분석
+- 게임별 상태와 정책을 클라이언트에서 필요한 데이터 형태로 API 제공
+- Facebook을 포함한 여러 플랫폼에서 사용하는 서비스의 변경 영향 확인
+- 실제 서비스 요청과 애플리케이션 로그를 확인하며 운영
 
 ### Data / Operations
 
 - 운영 검증 대상 Batch Job **41개**를 기준으로 주문·회원·통계 등 도메인별 데이터 검증
 - PostgreSQL · MySQL · MSSQL · Oracle · Redis · DynamoDB 사용
-- Kafka / RabbitMQ 기반 비동기 처리 경험
+- Kafka 기반 비동기 이벤트 처리 구성 **(개인 프로젝트)**
 - ELK, CloudWatch 및 애플리케이션 로그 기반 운영 이슈 분석
 
 ### AWS / Runtime
@@ -62,11 +64,11 @@ DAU 약 **123만** 규모의 글로벌 게임 서비스부터 한국·대만 광
 
 ## Core Skills
 
-- **Backend**: Java, Spring, Spring Boot, Spring Batch, Spring Security, MyBatis, JPA, QueryDSL
+- **Backend**: Java, Spring, Spring Boot, Spring Batch, MyBatis, JPA, QueryDSL
 - **Data**: PostgreSQL, MySQL, MSSQL, Oracle, Redis, DynamoDB
 - **Cloud / Runtime**: AWS EC2, ECS(EC2/Fargate), ALB/ELB, S3, CloudFront, Route53, CloudWatch
 - **Delivery / Operations**: CodePipeline, CodeBuild, CodeDeploy, Jenkins, Docker, Airflow, ELK
-- **Messaging**: Kafka, RabbitMQ
+- **Messaging**: Kafka (개인 프로젝트)
 - **Personal Project / Observability**: GitHub Actions, Prometheus, Grafana, Loki
 
 ---
@@ -75,7 +77,7 @@ DAU 약 **123만** 규모의 글로벌 게임 서비스부터 한국·대만 광
 
 ## DS GLOBAL
 
-**개발팀 과장 · Backend / Platform Engineer**  
+**개발팀 과장 · Backend Engineer**  
 **2026.01 — Present**
 
 레거시 쇼핑몰을 신규 커머스 플랫폼으로 전환하는 과정에서 백엔드 개발, AWS 실행 환경, Batch 시스템 검증, 데이터·이미지 마이그레이션과 운영 정책 정리를 담당하고 있습니다.
@@ -131,7 +133,7 @@ AI는 기존 코드 탐색과 반복 구현에 활용하고 있으며, 생성된
 
 ### 2. Commerce Product Data Migration
 
-**2026.06 — 진행**  
+**2026.06**  
 **MSSQL · PostgreSQL**
 
 기존 쇼핑몰 SaaS와 발주·배송·정산 시스템의 상품 데이터를 신규 커머스 플랫폼으로 통합했습니다.
@@ -199,7 +201,6 @@ DB 데이터와 실제 쇼핑몰 화면을 대조해 서비스에서 사용 중�
 - MAU 약 **16만**, DAU 약 **9,700** 환경에서 운영
 - 7일 이벤트 총 응모 **10,950건**
 - 참여 회원 **6,305명**
-- 전체 회차 참여 회원 **212명**
 
 ![쇼핑몰 서비스 화면](https://dev-wonny.github.io/engineering-notes/resume/assets/shop.webp)
 
@@ -342,6 +343,7 @@ DAU 약 **123만** 규모의 글로벌 서비스에서 게임 레벨과 등급 �
 
 ## MSA 기반 커머스 주문 플랫폼
 
+**2024.09 — 2024.10**  
 **Spring Boot · Java · Kafka · Redis · PostgreSQL · Docker · AWS · JPA · QueryDSL · GitHub Actions · Grafana · Loki**
 
 실무에서 사용하거나 학습한 기술을 직접 구성해 검증하기 위해 MSA 기반 주문 플랫폼을 개발했습니다.
@@ -377,7 +379,10 @@ AI를 코드 생성 속도를 높이는 도구로만 사용하기보다, 반복�
 
 **한성대학교**  
 행정학과 주전공 · 멀티미디어공학과 부전공  
-2016년 졸업 · 3.63 / 4.0
+2016년 졸업
+
+**2016 — 2019**  
+공무원 시험 준비 후 소프트웨어 개발자로 진로 전환
 
 ---
 
