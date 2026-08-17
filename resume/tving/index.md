@@ -50,7 +50,7 @@ DAU 약 **123만** 규모의 글로벌 게임 서비스부터 한국·대만에�
 
 - 운영 검증 대상 Batch Job **41개**를 기준으로 주문·회원·통계 등 도메인별 데이터 검증
 - PostgreSQL · MySQL · MSSQL · Oracle · Redis · DynamoDB 사용
-- Kafka 기반 비동기 이벤트 처리 구성 **(개인 프로젝트)**
+- DS GLOBAL에서 Kafka Consumer Worker를 포함한 비동기 처리 시스템을 다루고, 개인 프로젝트에서도 Kafka 기반 이벤트 처리 구성
 - ELK, CloudWatch 및 애플리케이션 로그 기반 운영 이슈 분석
 
 ### AWS / Runtime
@@ -68,7 +68,7 @@ DAU 약 **123만** 규모의 글로벌 게임 서비스부터 한국·대만에�
 - **Data**: PostgreSQL, MySQL, MSSQL, Oracle, Redis, DynamoDB
 - **Cloud / Runtime**: AWS EC2, ECS(EC2/Fargate), ALB/ELB, S3, CloudFront, Route53, CloudWatch
 - **Delivery / Operations**: CodePipeline, CodeBuild, CodeDeploy, Jenkins, Docker, Airflow, ELK
-- **Messaging**: Kafka (개인 프로젝트)
+- **Messaging**: Kafka (실무 및 개인 프로젝트)
 - **Personal Project / Observability**: GitHub Actions, Prometheus, Grafana, Loki
 
 ---
@@ -80,7 +80,7 @@ DAU 약 **123만** 규모의 글로벌 게임 서비스부터 한국·대만에�
 **개발팀 과장 · Backend Engineer**  
 **2026.01 — Present**
 
-레거시 쇼핑몰을 신규 커머스 플랫폼으로 전환하는 과정에서 백엔드 개발, AWS 실행 환경, Batch 시스템 검증, 데이터·이미지 마이그레이션과 운영 정책 정리를 담당하고 있습니다.
+레거시 쇼핑몰을 신규 커머스 플랫폼으로 전환하는 과정에서 백엔드 개발, AWS 실행 환경, Batch 시스템 검증, Kafka Consumer Worker를 포함한 비동기 처리 구조, 데이터·이미지 마이그레이션과 운영 정책 정리를 담당하고 있습니다.
 
 ### 1. Batch 실행 구조 개선 및 AI 기반 구현 검증
 
