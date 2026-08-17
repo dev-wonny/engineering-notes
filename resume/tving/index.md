@@ -354,8 +354,9 @@ DAU 약 **123만** 규모의 글로벌 서비스에서 게임 레벨과 등급 �
 - DDD + Layered Architecture 적용
 - Docker 기반 로컬 실행 환경과 Seed Data 구성
 - GitHub Actions 기반 CI/CD
-- Prometheus 기반 메트릭 수집, Grafana 시각화
-- Loki 기반 로그 확인 및 Slack 알림
+- Eureka, Gateway, User, Hub, Product, Order, Delivery, Ai-Noti **8개 서비스의 Spring Boot Actuator `/actuator/prometheus` 엔드포인트를 Prometheus 개별 Job으로 등록해 15초 주기로 메트릭 수집**
+- Grafana Dashboard에서 Prometheus 메트릭 시각화
+- Loki 기반 로그 조회 및 Grafana Slack Alert 연동
 
 ![MSA 주문 및 모니터링 시스템 아키텍처](https://dev-wonny.github.io/engineering-notes/resume/assets/msa.webp)
 
