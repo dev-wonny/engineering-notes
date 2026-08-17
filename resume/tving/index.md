@@ -301,7 +301,7 @@ DAU 약 **123만** 규모의 글로벌 서비스에서 게임 레벨과 등급 �
 **R&D팀 매니저**  
 **2020.01 — 2022.08**
 
-한국과 대만에서 운영되는 디지털 광고 서비스의 Tracking 및 FDS 시스템을 담당했습니다. 기존에 구축되어 있던 **Click Server, Action Server, Batch Job 등 광고 Tracking 백엔드 전반을 단독으로 유지보수**하며 신규 기능 추가와 운영 이슈 대응을 맡았습니다.
+한국과 대만에서 운영되는 디지털 광고 서비스의 Tracking 및 FDS 시스템을 담당했습니다. 기존에 구축되어 있던 **Click Server, Action Server, Batch Job 등 광고 Tracking 백엔드 전반을 주 담당자로 유지보수**하며 신규 기능 추가와 운영 이슈 대응을 맡았습니다.
 
 ### 1. 광고 Tracking 시스템 유지보수 및 기능 추가
 
@@ -344,7 +344,7 @@ DAU 약 **123만** 규모의 글로벌 서비스에서 게임 레벨과 등급 �
 ## MSA 기반 커머스 주문 플랫폼
 
 **2024.09 — 2024.10**  
-**Spring Boot · Java · Kafka · Redis · PostgreSQL · Docker · AWS · JPA · QueryDSL · GitHub Actions · Grafana · Loki**
+**Spring Boot · Java · Kafka · Redis · PostgreSQL · Docker · AWS · JPA · QueryDSL · GitHub Actions · Prometheus · Grafana · Loki**
 
 실무에서 사용하거나 학습한 기술을 직접 구성해 검증하기 위해 MSA 기반 주문 플랫폼을 개발했습니다.
 
@@ -354,7 +354,8 @@ DAU 약 **123만** 규모의 글로벌 서비스에서 게임 레벨과 등급 �
 - DDD + Layered Architecture 적용
 - Docker 기반 로컬 실행 환경과 Seed Data 구성
 - GitHub Actions 기반 CI/CD
-- Grafana / Loki 기반 로그 확인 및 Slack 알림
+- Prometheus 기반 메트릭 수집, Grafana 시각화
+- Loki 기반 로그 확인 및 Slack 알림
 
 ![MSA 주문 및 모니터링 시스템 아키텍처](https://dev-wonny.github.io/engineering-notes/resume/assets/msa.webp)
 
