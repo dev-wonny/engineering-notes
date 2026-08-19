@@ -17,37 +17,23 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 
 홈 레이아웃·배너·전시 상품·추천 상품처럼 **사용자에게 어떤 상품과 콘텐츠가 어떤 조건으로 노출되는지**를 코드·DB·API·실제 화면까지 연결해 파악하고, 요구사항과 실제 동작이 다를 때 원인을 Backend Query와 데이터 흐름까지 추적합니다.
 
-전시 영역의 인수·내재화 과정에서는 기존 구현을 그대로 받아들이기보다 운영자가 설정한 정책이 실제 서비스 Query까지 이어지는지 검증하고 있습니다. 동시에 Spring Batch 집계 오류를 Java/MyBatis에서 직접 수정하고, 출석·랜덤 리워드·응모권 이벤트 Backend를 직접 개발·배포·운영하는 등 **분석에서 끝나지 않고 실제 코드 수정과 운영까지 수행**해 왔습니다.
+최근에는 AI 기반 리빌딩 과정에서 Wishlist에 적용된 Soft Delete와 연관 집계 로직 사이의 정합성 문제를 발견했습니다. 단순 Query 수정으로 끝내지 않고 **찜 데이터에 이력이 필요한지, 현재 상태와 History의 책임을 어떻게 나눌지, 상품 삭제 시 연관 데이터를 어떻게 정리할지, 일 단위 전체 재집계가 필요한지**까지 다시 검토해 더 단순한 구조를 제안했습니다.
+
+동시에 Spring Batch 집계 오류를 Java/MyBatis에서 직접 수정하고, 출석·랜덤 리워드·응모권 이벤트 Backend를 직접 개발·배포·운영하는 등 **분석에서 끝나지 않고 실제 코드 수정과 운영까지 수행**해 왔습니다.
 
 이전에는 DAU 약 **123만** 규모의 글로벌 게임 서비스에서 Backend API와 운영 플랫폼을 개발했으며, AWS 환경 생성·배포·운영까지 서비스개발팀에서 함께 담당했습니다.
 
 ---
 
-## 최근 사례: Wishlist 데이터 수명주기와 집계 구조 재정의
-
-AI 기반 리빌딩 과정에서 찜(Wishlist)에 일괄 적용된 **Soft Delete 정책과 연관 집계 로직의 조건이 서로 맞지 않아**, 사용자 찜 상태와 상품별 집계 결과가 어긋나는 문제를 발견했습니다.
-
-문제를 단순 Query 누락으로 보지 않고 **“찜 데이터에서 삭제 이력을 정말 보존해야 하는가”**부터 다시 검토했습니다.
-
-- 현재 요구사항에는 찜 생성·해제 이력을 장기 보존해 활용하는 기능이 없어, 상태 row를 계속 남기는 Soft Delete의 실익이 낮다고 판단
-- Soft Delete를 유지하려면 모든 조회·집계가 동일한 삭제 조건을 따라야 하고, 이력 활용이 목적이라면 현재 상태 테이블과 별도의 History 책임을 두는 편이 명확하다고 정리
-- 현재 상태만 필요한 Wishlist는 **Hard Delete**로 단순화하고, 상품 삭제 시 해당 상품을 참조하는 고객의 찜 데이터도 함께 정리하는 정책 제안
-- 상품별 찜 수를 매일 전체 재집계하는 구조에 대해서도, 찜 추가/해제 시 증분 반영하고 Batch는 정합성 보정(Reconciliation) 용도로 사용하는 방향 검토
-
-```mermaid
-flowchart LR
-    A[Wish Add / Remove] --> B[Current Wishlist]
-    B --> C[Incremental Count]
-    C --> D[Display / Ranking]
-    E[Periodic Reconciliation] --> C
-    F[Product Delete] --> G[Related Wishlist Cleanup]
-```
-
-이 사례에서는 Soft Delete를 관례적으로 유지하기보다 **도메인에 실제 필요한 데이터 수명주기와 집계 책임을 먼저 정의하고, 불필요한 상태와 Batch 의존성을 줄이는 방향**을 제안했습니다.
-
----
-
 ## 카카오스타일 전시 시스템과 연결되는 경험
+
+### AI + Commerce Domain Problem Solving
+
+- AI 기반 리빌딩 결과를 그대로 수용하지 않고 실제 도메인 정책·연관 데이터·집계 결과와 비교해 문제 식별
+- Wishlist Soft Delete 적용으로 현재 찜 상태와 상품별 집계 조건이 어긋나는 문제 분석
+- 찜 이력 요구가 없는 현재 도메인에서는 **Hard Delete가 더 단순한 모델**이라고 판단하고 상품 삭제 시 연관 Wishlist 정리 정책 제안
+- 이력이 필요하다면 현재 상태 테이블에 삭제 상태를 누적하기보다 별도 History 책임을 분리하는 방향 제안
+- 매일 전체 재집계하는 방식 대신 찜 추가/해제 시 증분 반영하고 Batch는 정합성 보정에 사용하는 방향 검토
 
 ### Commerce Display / Recommendation
 
@@ -84,7 +70,7 @@ flowchart LR
 ## Core Skills
 
 - **Backend**: Java, Spring, Spring Boot, Spring Batch, MyBatis, JPA, QueryDSL
-- **Commerce Domain**: Display, Product, Recommendation Policy, Event, Migration
+- **Commerce Domain**: Display, Product, Recommendation Policy, Wishlist, Event, Migration
 - **Data**: PostgreSQL, MySQL, MSSQL, Oracle, Redis, DynamoDB
 - **Cloud / Runtime**: AWS EC2, ECS(EC2/Fargate), ALB/ELB, S3, CloudFront, Route53, CloudWatch
 - **Delivery / Operations**: CodePipeline, CodeBuild, CodeDeploy, Jenkins, Docker, Airflow, ELK
@@ -102,11 +88,52 @@ flowchart LR
 
 레거시 쇼핑몰을 신규 커머스 플랫폼으로 전환하는 과정에서 **전시 영역을 담당**하고 있으며, 상품·추천·이벤트 Backend와 Batch 데이터 검증, AWS 실행 환경, 데이터·이미지 마이그레이션을 함께 다루고 있습니다.
 
-### 1. Commerce Display System
+### 1. AI 기반 Wishlist 리빌딩 검증 및 데이터 수명주기 재정의
+
+**Java · Spring Boot · JPA / QueryDSL · PostgreSQL · Spring Batch**
+
+AI를 활용해 리빌딩한 Wishlist 영역에서 개발 과정 중 적용된 **Soft Delete 정책과 연관 테이블의 조회·집계 조건이 서로 일치하지 않아**, 사용자 찜 상태와 상품별 집계 결과가 달라지는 문제를 발견했습니다.
+
+이 문제를 단순히 누락된 `deleted` 조건을 추가하는 문제로 보지 않고, 먼저 **Wishlist가 어떤 데이터를 보존해야 하는 도메인인지**부터 다시 검토했습니다.
+
+#### 문제를 다시 정의한 기준
+
+- 현재 요구사항은 사용자의 **현재 찜 상태**가 핵심이며, 찜 생성·해제 이력을 장기 보존해 사용하는 기능은 없음
+- 그럼에도 Soft Delete를 적용하면 모든 조회·집계·추천 로직이 동일한 삭제 조건을 지속적으로 따라야 함
+- 상품 삭제 시 상품만 비활성화되고 Wishlist 관계가 남으면 고객 찜 목록과 상품별 찜 집계가 서로 다른 의미를 가질 수 있음
+- 이력이 실제 비즈니스 요구라면 현재 상태 테이블에 삭제 row를 누적하기보다 **현재 상태와 History의 책임을 분리**하는 편이 명확함
+
+#### 제안한 방향
+
+- 이력 요구가 없는 현재 Wishlist는 **Hard Delete**로 단순화
+- 상품 삭제 시 해당 상품을 참조하는 고객의 Wishlist도 함께 정리하도록 데이터 수명주기 정책 정의
+- 향후 행동 이력이 필요해질 경우 `Wishlist Current State`와 별도 `Wishlist History`를 분리하는 구조 검토
+- 상품별 찜 수를 매일 전체 재집계하기보다 **찜 추가/해제 시 증분 반영**하고, Batch는 정합성 보정(Reconciliation) 용도로 사용하는 방향 검토
+
+```mermaid
+flowchart TD
+    A[AI Rebuild] --> B[Soft Delete Applied]
+    B --> C[Related Query / Aggregation Mismatch]
+    C --> D{Is Wish History Required?}
+    D -->|No| E[Hard Delete Current State]
+    D -->|Yes| F[Separate History Responsibility]
+    E --> G[Incremental Wish Count]
+    G --> H[Display / Ranking]
+    I[Periodic Reconciliation] --> G
+    J[Product Delete] --> K[Related Wishlist Cleanup]
+```
+
+이 사례에서 AI는 기존 방식을 빠르게 재구현하는 도구로 활용했지만, **생성된 구조가 실제 도메인 의미와 맞는지는 별도로 검증해야 한다**고 판단했습니다. 관례적으로 Soft Delete를 유지하기보다 필요한 상태와 이력을 구분하고, 불필요한 데이터 상태와 Batch 의존성을 줄이는 방향으로 정리해 개발팀에 전달했습니다.
+
+이 방향은 정책·구조 제안 단계이며, 실제 반영이 완료된 항목과는 구분해 기재합니다.
+
+---
+
+### 2. Commerce Display System 인수·검증
 
 **Java · Spring Boot · JPA · QueryDSL · PostgreSQL**
 
-홈 화면에 노출되는 레이아웃과 배너, 이벤트, 상품 영역이 실제로 어떤 데이터와 정책을 기준으로 구성되는지 코드·DB·API·Shop 화면을 함께 따라가며 인수·검증하고 있습니다.
+홈 화면에 노출되는 레이아웃과 배너, 이벤트, 상품 영역은 외부 개발사가 구현한 시스템을 내재화하는 과정에서 담당하게 되었습니다. 전시관리 화면만 확인하지 않고 Backend 코드, DB 관계, API Response와 Shop 화면을 함께 따라가며 실제 노출 구조와 운영 제약을 검증했습니다.
 
 ```mermaid
 flowchart TD
@@ -138,11 +165,11 @@ flowchart TD
 - Admin 설정값과 실제 Shop 노출 결과가 다를 경우 Backend Query까지 추적
 - 미구현 또는 일부만 동작하는 전시 유형과 운영 제약을 식별해 내재화 기준으로 문서화
 
-이 영역은 현재 외부 구현을 인수·검증하는 과정이므로, **직접 구현 완료한 내용과 분석·개선 제안은 구분해서 관리**하고 있습니다.
+이 영역은 외부 구현을 인수·검증하는 과정이므로, **직접 구현 완료한 내용과 분석·개선 제안은 구분해서 관리**하고 있습니다.
 
 ---
 
-### 2. Display Preview Policy 검증
+### 3. Display Preview Policy 검증
 
 전시 운영자가 공개 전 콘텐츠를 확인하는 Preview 기능에서 노출 OFF·노출 기간 전후 콘텐츠가 어떤 조건까지 우회되고, 어떤 상품 조건은 그대로 유지되는지 확인했습니다.
 
@@ -163,7 +190,7 @@ flowchart TD
 
 ---
 
-### 3. Recommendation Product Policy & Serving
+### 4. Recommendation Product Policy & Serving
 
 **Java · Spring Boot · JPA / QueryDSL · PostgreSQL · Spring Batch**
 
@@ -207,7 +234,7 @@ flowchart TD
 
 ---
 
-### 4. Recommendation Selection / Presentation 책임 분리 제안
+### 5. Recommendation Selection / Presentation 책임 분리 제안
 
 현재 추천 상품은 상품 선정 정책은 Admin에서 관리하지만 화면 표현 방식은 프론트 구현에 의해 고정되어 있습니다.
 
@@ -234,7 +261,7 @@ flowchart LR
 
 ---
 
-### 5. Batch Data Consistency — 발견에서 코드 수정까지
+### 6. Batch Data Consistency — 발견에서 코드 수정까지
 
 **Spring Batch · Java · MyBatis · PostgreSQL · Airflow · Docker · LocalStack**
 
@@ -268,7 +295,7 @@ Java / MyBatis 수정
 
 ---
 
-### 6. AI-assisted Batch Engineering
+### 7. AI-assisted Batch Engineering
 
 AI를 활용해 재구현된 Batch Job을 기존 서비스 코드와 원천 데이터, 실제 정책을 기준으로 검증·수정하고 있습니다.
 
@@ -282,7 +309,7 @@ AI를 활용해 재구현된 Batch Job을 기존 서비스 코드와 원천 데�
 
 ---
 
-### 7. 쇼핑몰 이벤트 플랫폼 개발 및 운영
+### 8. 쇼핑몰 이벤트 플랫폼 개발 및 운영
 
 **2026.03 — 2026.04**  
 **Spring Boot · PostgreSQL · AWS ECS(EC2) · ALB · CodePipeline · CodeBuild · CodeDeploy · ELK**
@@ -307,7 +334,7 @@ AI를 활용해 재구현된 Batch Job을 기존 서비스 코드와 원천 데�
 
 ---
 
-### 8. Commerce Product / Image Migration
+### 9. Commerce Product / Image Migration
 
 **MSSQL · PostgreSQL · AWS S3 · CloudFront**
 
