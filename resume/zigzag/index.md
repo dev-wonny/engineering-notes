@@ -23,6 +23,30 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 
 ---
 
+## 최근 사례: Wishlist 데이터 수명주기와 집계 구조 재정의
+
+AI 기반 리빌딩 과정에서 찜(Wishlist)에 일괄 적용된 **Soft Delete 정책과 연관 집계 로직의 조건이 서로 맞지 않아**, 사용자 찜 상태와 상품별 집계 결과가 어긋나는 문제를 발견했습니다.
+
+문제를 단순 Query 누락으로 보지 않고 **“찜 데이터에서 삭제 이력을 정말 보존해야 하는가”**부터 다시 검토했습니다.
+
+- 현재 요구사항에는 찜 생성·해제 이력을 장기 보존해 활용하는 기능이 없어, 상태 row를 계속 남기는 Soft Delete의 실익이 낮다고 판단
+- Soft Delete를 유지하려면 모든 조회·집계가 동일한 삭제 조건을 따라야 하고, 이력 활용이 목적이라면 현재 상태 테이블과 별도의 History 책임을 두는 편이 명확하다고 정리
+- 현재 상태만 필요한 Wishlist는 **Hard Delete**로 단순화하고, 상품 삭제 시 해당 상품을 참조하는 고객의 찜 데이터도 함께 정리하는 정책 제안
+- 상품별 찜 수를 매일 전체 재집계하는 구조에 대해서도, 찜 추가/해제 시 증분 반영하고 Batch는 정합성 보정(Reconciliation) 용도로 사용하는 방향 검토
+
+```mermaid
+flowchart LR
+    A[Wish Add / Remove] --> B[Current Wishlist]
+    B --> C[Incremental Count]
+    C --> D[Display / Ranking]
+    E[Periodic Reconciliation] --> C
+    F[Product Delete] --> G[Related Wishlist Cleanup]
+```
+
+이 사례에서는 Soft Delete를 관례적으로 유지하기보다 **도메인에 실제 필요한 데이터 수명주기와 집계 책임을 먼저 정의하고, 불필요한 상태와 Batch 의존성을 줄이는 방향**을 제안했습니다.
+
+---
+
 ## 카카오스타일 전시 시스템과 연결되는 경험
 
 ### Commerce Display / Recommendation
