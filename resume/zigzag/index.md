@@ -6,18 +6,18 @@ outline: [2, 3]
 
 # 한정원
 
-**Backend Engineer · Commerce Display / Recommendation**  
+**Backend Engineer · Commerce Product / User / Display**  
 **지원 포지션: 카카오스타일 백엔드 개발자 (전시 시스템)**
 
 Email. devwonny@gmail.com · GitHub. [github.com/dev-wonny](https://github.com/dev-wonny)
 
 ![한정원 프로필](https://dev-wonny.github.io/engineering-notes/resume/assets/profile.jpg)
 
-Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 커머스 플랫폼의 **전시(Display) 영역을 담당**하고 있습니다.
+Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 커머스 플랫폼의 **상품 · 유저 · 전시 영역을 담당**하고 있습니다.
 
-홈 레이아웃·배너·전시 상품·추천 상품처럼 **사용자에게 어떤 상품과 콘텐츠가 어떤 조건으로 노출되는지**를 코드·DB·API·실제 화면까지 연결해 파악하고, 요구사항과 실제 동작이 다를 때 원인을 Backend Query와 데이터 흐름까지 추적합니다.
+상품 가격과 노출 조건, 사용자의 찜 상태, 홈·추천 상품처럼 고객이 실제로 마주하는 데이터가 **어떤 정책과 시간 경계를 기준으로 저장되고 조회되는지**를 코드·DB·API·화면까지 연결해서 봅니다. 요구사항과 실제 동작이 다르면 Query 하나만 고치는 데 그치지 않고 데이터의 수명주기와 도메인 경계부터 다시 정의합니다.
 
-최근에는 AI 기반 리빌딩 과정에서 Wishlist에 적용된 Soft Delete와 연관 집계 로직 사이의 정합성 문제를 발견했습니다. 단순 Query 수정으로 끝내지 않고 **찜 데이터에 이력이 필요한지, 현재 상태와 History의 책임을 어떻게 나눌지, 상품 삭제 시 연관 데이터를 어떻게 정리할지, 일 단위 전체 재집계가 필요한지**까지 다시 검토해 더 단순한 구조를 제안했습니다.
+최근에는 AI 기반 리빌딩 과정에서 Wishlist의 Soft Delete와 집계 조건 불일치를 발견해 데이터 수명주기 정책을 다시 정리했고, 상품 가격 이력에서는 **반개구간 `[start, end)`과 마이크로초 정밀도를 DB와 Application에 동일하게 적용하고, 고객 입력이 분 단위인 화면에서는 초·마이크로초를 고정값으로 정규화하는 정책**을 정의했습니다.
 
 동시에 Spring Batch 집계 오류를 Java/MyBatis에서 직접 수정하고, 출석·랜덤 리워드·응모권 이벤트 Backend를 직접 개발·배포·운영하는 등 **분석에서 끝나지 않고 실제 코드 수정과 운영까지 수행**해 왔습니다.
 
@@ -27,20 +27,25 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 
 ## 카카오스타일 전시 시스템과 연결되는 경험
 
-### AI + Commerce Domain Problem Solving
+### Product / User Domain Problem Solving
+
+- 상품 · 유저 · 전시 영역을 담당하며 고객에게 노출되는 상품 데이터와 사용자 상태의 정책·정합성 검증
+- Wishlist Soft Delete 적용으로 현재 찜 상태와 상품별 집계 조건이 어긋나는 문제를 발견하고 **Hard Delete + 상품 삭제 시 연관 Wishlist 정리** 정책 제안
+- 상품 가격 이력의 경계 중복/누락을 막기 위해 **반개구간 `[start, end)`** 정책 정의
+- 가격 이력의 Application/DB 시간 정밀도를 **마이크로초 단위로 통일**하고 화면의 분 단위 입력은 초·마이크로초를 고정값으로 정규화하도록 기준 수립
+- UI, Application, DB가 서로 다른 시간 해석을 갖지 않도록 저장·조회 계약을 하나의 정책으로 정리
+
+### AI + Commerce Domain Engineering
 
 - AI 기반 리빌딩 결과를 그대로 수용하지 않고 실제 도메인 정책·연관 데이터·집계 결과와 비교해 문제 식별
-- Wishlist Soft Delete 적용으로 현재 찜 상태와 상품별 집계 조건이 어긋나는 문제 분석
-- 찜 이력 요구가 없는 현재 도메인에서는 **Hard Delete가 더 단순한 모델**이라고 판단하고 상품 삭제 시 연관 Wishlist 정리 정책 제안
-- 이력이 필요하다면 현재 상태 테이블에 삭제 상태를 누적하기보다 별도 History 책임을 분리하는 방향 제안
-- 매일 전체 재집계하는 방식 대신 찜 추가/해제 시 증분 반영하고 Batch는 정합성 보정에 사용하는 방향 검토
+- AI로 재구현된 Spring Batch Job을 기존 코드·원천 데이터·서비스 정책과 비교해 검증 및 수정
+- 코드 탐색, 반복 구현, 문서 분석에 AI Agent 활용
+- 생성된 코드를 실행 성공으로 완료 처리하지 않고 기대 결과와 실제 데이터로 재검증
 
 ### Commerce Display / Recommendation
 
-- 커머스 플랫폼의 **전시관리 영역 담당**
-- 홈 레이아웃의 콘텐츠·배너·상품형 전시를 유형별로 분해하고 실제 데이터 조회 흐름 분석
-- 전시 유형별 상품 소스가 수동 매핑, 태그, 전시 카테고리, 리뷰·가격 조건 등에 따라 달라지는 구조 검증
-- 추천 상품의 랜덤 / 누적 주문수량 / 누적 주문금액 정책과 기간 집계·가격·노출 수 조건의 실제 Query 반영 여부 검증
+- 외부 개발사가 구현한 전시 시스템을 내재화하며 홈·배너·상품형 전시의 실제 데이터 흐름 검증
+- 추천 상품의 랜덤 / 누적 주문수량 / 누적 주문금액 정책과 기간 집계·가격·노출 수 조건의 Query 반영 여부 검증
 - Admin 설정 → Backend → DB → Shop API → 실제 화면까지 전체 흐름 기준으로 정책과 구현의 차이 식별
 - 추천 상품의 **Selection Policy와 Presentation Policy를 분리**해 운영 확장성을 확보하는 구조 제안
 
@@ -50,13 +55,6 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 - 출석·랜덤 리워드·응모권 이벤트 Backend API 직접 개발
 - AWS ECS(EC2) 환경 배포 및 운영, CodePipeline · CodeBuild · CodeDeploy 기반 배포
 - 주문·회원·상품 Batch의 재실행·Backfill 시 중복/누락과 멱등성 검증
-
-### AI-assisted Engineering
-
-- AI를 활용해 재구현된 Spring Batch Job을 기존 코드·원천 데이터·서비스 정책과 비교해 검증 및 수정
-- 코드 탐색, 반복 구현, 문서 분석에 AI Agent 활용
-- 생성된 코드를 그대로 신뢰하지 않고 기대 결과를 정의한 뒤 실제 데이터와 테스트 결과로 재검증
-- 반복되는 코드 컨벤션·아키텍처 제약·검증 기준을 재사용 가능한 지침 형태로 관리
 
 ### Architecture / MSA
 
@@ -70,7 +68,7 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 ## Core Skills
 
 - **Backend**: Java, Spring, Spring Boot, Spring Batch, MyBatis, JPA, QueryDSL
-- **Commerce Domain**: Display, Product, Recommendation Policy, Wishlist, Event, Migration
+- **Commerce Domain**: Product, User, Display, Recommendation Policy, Wishlist, Event, Migration
 - **Data**: PostgreSQL, MySQL, MSSQL, Oracle, Redis, DynamoDB
 - **Cloud / Runtime**: AWS EC2, ECS(EC2/Fargate), ALB/ELB, S3, CloudFront, Route53, CloudWatch
 - **Delivery / Operations**: CodePipeline, CodeBuild, CodeDeploy, Jenkins, Docker, Airflow, ELK
@@ -86,7 +84,7 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 **개발팀 과장 · Backend Engineer**  
 **2026.01 — Present**
 
-레거시 쇼핑몰을 신규 커머스 플랫폼으로 전환하는 과정에서 **전시 영역을 담당**하고 있으며, 상품·추천·이벤트 Backend와 Batch 데이터 검증, AWS 실행 환경, 데이터·이미지 마이그레이션을 함께 다루고 있습니다.
+레거시 쇼핑몰을 신규 커머스 플랫폼으로 전환하는 과정에서 **상품 · 유저 · 전시 영역을 담당**하고 있습니다. 상품 가격·노출 정책, 사용자 상태, 추천/전시 데이터, 이벤트 Backend와 Batch 데이터 검증, AWS 실행 환경, 데이터·이미지 마이그레이션을 함께 다루고 있습니다.
 
 ### 1. AI 기반 Wishlist 리빌딩 검증 및 데이터 수명주기 재정의
 
@@ -99,8 +97,8 @@ AI를 활용해 리빌딩한 Wishlist 영역에서 개발 과정 중 적용된 *
 #### 문제를 다시 정의한 기준
 
 - 현재 요구사항은 사용자의 **현재 찜 상태**가 핵심이며, 찜 생성·해제 이력을 장기 보존해 사용하는 기능은 없음
-- 그럼에도 Soft Delete를 적용하면 모든 조회·집계·추천 로직이 동일한 삭제 조건을 지속적으로 따라야 함
-- 상품 삭제 시 상품만 비활성화되고 Wishlist 관계가 남으면 고객 찜 목록과 상품별 찜 집계가 서로 다른 의미를 가질 수 있음
+- Soft Delete를 적용하면 모든 조회·집계·추천 로직이 동일한 삭제 조건을 지속적으로 따라야 함
+- 상품 삭제 시 Wishlist 관계가 남으면 고객 찜 목록과 상품별 찜 집계가 서로 다른 의미를 가질 수 있음
 - 이력이 실제 비즈니스 요구라면 현재 상태 테이블에 삭제 row를 누적하기보다 **현재 상태와 History의 책임을 분리**하는 편이 명확함
 
 #### 제안한 방향
@@ -113,7 +111,7 @@ AI를 활용해 리빌딩한 Wishlist 영역에서 개발 과정 중 적용된 *
 ```mermaid
 flowchart TD
     A[AI Rebuild] --> B[Soft Delete Applied]
-    B --> C[Related Query / Aggregation Mismatch]
+    B --> C[Query / Aggregation Mismatch]
     C --> D{Is Wish History Required?}
     D -->|No| E[Hard Delete Current State]
     D -->|Yes| F[Separate History Responsibility]
@@ -123,13 +121,50 @@ flowchart TD
     J[Product Delete] --> K[Related Wishlist Cleanup]
 ```
 
-이 사례에서 AI는 기존 방식을 빠르게 재구현하는 도구로 활용했지만, **생성된 구조가 실제 도메인 의미와 맞는지는 별도로 검증해야 한다**고 판단했습니다. 관례적으로 Soft Delete를 유지하기보다 필요한 상태와 이력을 구분하고, 불필요한 데이터 상태와 Batch 의존성을 줄이는 방향으로 정리해 개발팀에 전달했습니다.
+AI는 기존 방식을 빠르게 재구현하는 도구로 활용했지만, **생성된 구조가 실제 도메인 의미와 맞는지는 별도로 검증해야 한다**고 판단했습니다. 관례적으로 Soft Delete를 유지하기보다 필요한 상태와 이력을 구분하고, 불필요한 데이터 상태와 Batch 의존성을 줄이는 방향으로 정리해 개발팀에 전달했습니다.
 
 이 방향은 정책·구조 제안 단계이며, 실제 반영이 완료된 항목과는 구분해 기재합니다.
 
 ---
 
-### 2. Commerce Display System 인수·검증
+### 2. 상품 가격 이력의 시간 경계·정밀도 정책 설계
+
+**Java · Spring Boot · JPA · PostgreSQL · Temporal Data Modeling**
+
+상품 가격은 특정 시점의 값 하나가 아니라 **유효 기간을 가진 이력 데이터**입니다. 가격 변경 시점의 경계를 잘못 정의하면 같은 순간에 두 가격이 동시에 유효해지거나, 반대로 어느 가격도 적용되지 않는 구간이 생길 수 있습니다.
+
+기존 논의에서 초 단위로 단순화하는 방향도 있었지만, Application만 정밀하게 처리하고 DB가 다른 정밀도를 가지면 저장·조회 결과가 다시 어긋날 수 있다고 판단했습니다. 그래서 **Application과 DB 모두 동일한 마이크로초 정밀도를 유지**하는 정책을 정리했습니다.
+
+#### 정의한 정책
+
+- 가격 유효 구간은 양끝을 모두 포함하는 `BETWEEN` 대신 **반개구간 `[start, end)`** 사용
+- 조회 조건은 `start_at <= t AND t < end_at`로 통일해 인접한 가격 이력 사이의 중복을 방지
+- 가격 시간값은 Application과 PostgreSQL 모두 **마이크로초 정밀도**를 동일하게 유지
+- 고객/운영 화면은 분 단위로 시간을 입력하므로, 화면에서 입력되지 않는 **초와 마이크로초는 정책상 고정값으로 정규화**
+- Front → API → Application → DB가 서로 다른 시간 단위를 해석하지 않도록 동일한 시간 계약으로 관리
+
+```mermaid
+flowchart LR
+    A[Front: minute input] --> B[Normalize second / microsecond]
+    B --> C[Application: microsecond precision]
+    C --> D[DB: microsecond precision]
+    D --> E[Price interval: start <= t < end]
+```
+
+예를 들어 이전 가격의 `end_at`과 다음 가격의 `start_at`이 같은 시각이라면:
+
+```text
+이전 가격  [10:00, 11:00)
+다음 가격  [11:00, 12:00)
+```
+
+`11:00`에는 다음 가격만 유효합니다. 경계 시각에 두 가격이 동시에 선택되거나 누락되지 않습니다.
+
+이 경험은 단순 컬럼 타입 선택이 아니라 **상품 가격이라는 비즈니스 상태를 시간축에서 어떻게 표현할지, 그리고 UI·Application·DB가 동일한 의미를 유지하도록 어떤 계약을 둘지 정책을 세운 사례**입니다.
+
+---
+
+### 3. Commerce Display System 인수·검증
 
 **Java · Spring Boot · JPA · QueryDSL · PostgreSQL**
 
@@ -169,7 +204,7 @@ flowchart TD
 
 ---
 
-### 3. Display Preview Policy 검증
+### 4. Display Preview Policy 검증
 
 전시 운영자가 공개 전 콘텐츠를 확인하는 Preview 기능에서 노출 OFF·노출 기간 전후 콘텐츠가 어떤 조건까지 우회되고, 어떤 상품 조건은 그대로 유지되는지 확인했습니다.
 
@@ -190,7 +225,7 @@ flowchart TD
 
 ---
 
-### 4. Recommendation Product Policy & Serving
+### 5. Recommendation Product Policy & Serving
 
 **Java · Spring Boot · JPA / QueryDSL · PostgreSQL · Spring Batch**
 
@@ -234,7 +269,7 @@ flowchart TD
 
 ---
 
-### 5. Recommendation Selection / Presentation 책임 분리 제안
+### 6. Recommendation Selection / Presentation 책임 분리 제안
 
 현재 추천 상품은 상품 선정 정책은 Admin에서 관리하지만 화면 표현 방식은 프론트 구현에 의해 고정되어 있습니다.
 
@@ -261,7 +296,7 @@ flowchart LR
 
 ---
 
-### 6. Batch Data Consistency — 발견에서 코드 수정까지
+### 7. Batch Data Consistency — 발견에서 코드 수정까지
 
 **Spring Batch · Java · MyBatis · PostgreSQL · Airflow · Docker · LocalStack**
 
@@ -295,7 +330,7 @@ Java / MyBatis 수정
 
 ---
 
-### 7. AI-assisted Batch Engineering
+### 8. AI-assisted Batch Engineering
 
 AI를 활용해 재구현된 Batch Job을 기존 서비스 코드와 원천 데이터, 실제 정책을 기준으로 검증·수정하고 있습니다.
 
@@ -309,7 +344,7 @@ AI를 활용해 재구현된 Batch Job을 기존 서비스 코드와 원천 데�
 
 ---
 
-### 8. 쇼핑몰 이벤트 플랫폼 개발 및 운영
+### 9. 쇼핑몰 이벤트 플랫폼 개발 및 운영
 
 **2026.03 — 2026.04**  
 **Spring Boot · PostgreSQL · AWS ECS(EC2) · ALB · CodePipeline · CodeBuild · CodeDeploy · ELK**
@@ -334,7 +369,7 @@ AI를 활용해 재구현된 Batch Job을 기존 서비스 코드와 원천 데�
 
 ---
 
-### 9. Commerce Product / Image Migration
+### 10. Commerce Product / Image Migration
 
 **MSSQL · PostgreSQL · AWS S3 · CloudFront**
 
@@ -416,6 +451,10 @@ MSA의 서비스 경계와 비동기 이벤트 처리를 직접 설계해보기 
 ---
 
 # How I Work
+
+### 데이터의 의미와 경계를 먼저 정의합니다
+
+Soft Delete 여부나 시간 컬럼 정밀도처럼 구현 세부사항으로 보이는 문제도 결국 도메인이 어떤 상태와 이력을 필요로 하는지의 문제라고 생각합니다. 현재 상태와 History, 가격의 시작·종료 경계처럼 **데이터가 의미하는 바를 먼저 정의한 뒤 구현 규칙으로 내립니다.**
 
 ### 설정값이 아니라 실제 실행 경로를 봅니다
 
