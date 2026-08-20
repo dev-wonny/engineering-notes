@@ -4,29 +4,45 @@ description: 카카오스타일 백엔드 개발자(전시 시스템) 지원용 
 outline: [2, 3]
 ---
 
-# 한정원 · Backend Engineer
+# 한정원
 
-**총 경력 약 5년 5개월 · Java/Spring 5년+ · Commerce Product · User · Display**  
-지원: **카카오스타일 전시 시스템** · devwonny@gmail.com · [github.com/dev-wonny](https://github.com/dev-wonny)
+**Backend Engineer · 총 경력 약 5년 5개월 · Java/Spring 5년+**  
+**Commerce Product / User / Display**  
+**지원 포지션: 카카오스타일 백엔드 개발자 (전시 시스템)**
+
+Email. devwonny@gmail.com · GitHub. [github.com/dev-wonny](https://github.com/dev-wonny)
 
 ![한정원 프로필](https://dev-wonny.github.io/engineering-notes/resume/assets/profile.jpg)
 
-- **도메인** — 상품·유저·전시 정책을 코드·DB·API·화면까지 연결해 정의
-- **AI** — 구현엔 적극 활용하고, 검증 기준은 사람이 먼저 정의해 실제 데이터로 확인
-- **규모** — DAU 약 **123만** 서비스 Backend 개발·운영, AWS 배포·운영
+- 현재 커머스 플랫폼의 **상품 · 유저 · 전시 영역**을 담당하며 상품 가격, Wishlist, 추천·전시 정책을 코드·DB·API·화면까지 연결해 다룹니다.
+- AI Agent를 구현과 코드 탐색에 적극 활용하되, **도메인 규칙·데이터 경계·검증 기준은 사람이 먼저 정의**하고 실제 데이터와 실행 경로로 결과를 검증합니다.
+- DAU 약 **123만** 규모의 글로벌 서비스 Backend 개발·운영과 AWS 환경 생성·배포·운영 경험이 있습니다.
+
+> **AI가 구현 속도를 높일수록, 무엇이 올바른 구현인지 판단할 수 있는 도메인 이해와 설계 기준이 더 중요하다고 생각합니다.**
+
+---
 
 ## ZIGZAG 전시 영역과 연결되는 경험
 
 | ZIGZAG 영역 | 연결되는 경험 |
 | --- | --- |
-| **홈 / 전시** | 레이아웃·배너·상품형 전시 노출 흐름 검증 |
-| **PLP / 상품** | 상품 상태·가격·기간·삭제 정책, 가격 이력 경계 |
-| **찜 / 북마크** | Wishlist 삭제 정책, 연관 데이터 수명주기 |
-| **추천 / 랭킹** | 기간별 사전 집계 기반 추천 Serving |
-| **운영 도구** | Shop / Admin / Batch 공통 정책·데이터 계약 |
+| **홈 / 전시** | 홈 레이아웃·배너·상품형 전시의 실제 노출 흐름과 운영 정책 검증 |
+| **PLP / 상품 노출** | 상품 상태·가격·기간·삭제 정책, 가격 이력의 시간 경계 설계 |
+| **찜 / 북마크** | Wishlist 삭제 정책 재정의, 상품 삭제와 연관 데이터 수명주기 통일 |
+| **추천 / 랭킹** | 주문수량·주문금액·기간별 사전 집계 기반 추천 Serving, 랜덤 정렬 성능 리스크 검토 |
+| **운영 도구** | Shop / Admin / Batch가 동일한 상품 정책과 데이터 계약을 사용하도록 공통 기준 정리 |
 
-**기술 스택:** Java · Spring Boot · Spring Batch · JPA/QueryDSL · MyBatis · PostgreSQL · AWS · Kafka  
-전체 스택은 하단에 정리했습니다.
+---
+
+## Core Skills
+
+- **Backend**: Java, Spring, Spring Boot, Spring Batch, MyBatis, JPA, QueryDSL
+- **Commerce Domain**: Product, User, Display, Recommendation Policy, Wishlist, Point, Event, Migration
+- **Data**: PostgreSQL, MySQL, MSSQL, Oracle, Redis, DynamoDB
+- **Cloud / Runtime**: AWS EC2, ECS(EC2/Fargate), ALB/ELB, S3, CloudFront, Route53, CloudWatch
+- **Delivery / Operations**: CodePipeline, CodeBuild, CodeDeploy, Jenkins, Docker, Airflow, ELK
+- **Messaging**: Kafka (실무 및 개인 프로젝트)
+- **Personal Project / Observability**: GitHub Actions, Prometheus, Grafana, Loki
 
 ---
 
@@ -286,18 +302,6 @@ DAU 약 **123만** 규모의 글로벌 소셜카지노 게임 서비스에서 Ja
 - Grafana · Loki 기반 관측성 구성
 
 ![MSA 구조](https://dev-wonny.github.io/engineering-notes/resume/assets/msa.webp)
-
----
-
-# Core Skills
-
-- **Backend**: Java, Spring, Spring Boot, Spring Batch, MyBatis, JPA, QueryDSL
-- **Commerce Domain**: Product, User, Display, Recommendation Policy, Wishlist, Point, Event, Migration
-- **Data**: PostgreSQL, MySQL, MSSQL, Oracle, Redis, DynamoDB
-- **Cloud / Runtime**: AWS EC2, ECS(EC2/Fargate), ALB/ELB, S3, CloudFront, Route53, CloudWatch
-- **Delivery / Operations**: CodePipeline, CodeBuild, CodeDeploy, Jenkins, Docker, Airflow, ELK
-- **Messaging**: Kafka (실무 및 개인 프로젝트)
-- **Personal Project / Observability**: GitHub Actions, Prometheus, Grafana, Loki
 
 ---
 
