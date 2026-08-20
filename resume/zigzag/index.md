@@ -17,7 +17,9 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 
 상품 가격과 노출 조건, 사용자의 찜 상태, 홈·추천 상품처럼 고객이 실제로 마주하는 데이터가 **어떤 정책과 시간 경계를 기준으로 저장되고 조회되는지**를 코드·DB·API·화면까지 연결해서 봅니다. 요구사항과 실제 동작이 다르면 Query 하나만 고치는 데 그치지 않고 데이터의 수명주기와 도메인 경계부터 다시 정의합니다.
 
-최근에는 AI 기반 리빌딩 과정에서 Wishlist의 Soft Delete와 집계 조건 불일치를 발견해 데이터 수명주기 정책을 다시 정리했고, 상품 가격 이력에서는 **반개구간 `[start, end)`과 마이크로초 정밀도를 DB와 Application에 동일하게 적용하고, 고객 입력이 분 단위인 화면에서는 초·마이크로초를 고정값으로 정규화하는 정책**을 정의했습니다.
+최근에는 AI 기반 리빌딩 과정에서 Wishlist의 Soft Delete와 집계 조건 불일치를 발견해 삭제 정책을 다시 정리했고, 팀과 개발리더를 설득해 **Shop과 Admin 모두 상품 삭제 기준을 `is_deleted`로 통일하고, 상품 삭제 시 연관 데이터를 함께 정리하는 공통 정책**으로 합의·적용했습니다. 상품 가격 이력에서는 **반개구간 `[start, end)`과 마이크로초 정밀도를 DB와 Application에 동일하게 적용하고, 고객 입력이 분 단위인 화면에서는 초·마이크로초를 고정값으로 정규화하는 정책**을 정의했습니다.
+
+포인트 지급 정책에서는 주문 당시 회원등급 정책을 보존하기 위해 등급 ID와 지급 비율·정액값은 주문 시점에 Snapshot으로 저장하되, 최종 지급 예정 포인트는 수량 변경·취소·재지급 가능성을 고려해 저장하지 않고 **지급 시점에 다시 계산**하는 방향으로 개발리더와 결정했습니다.
 
 동시에 Spring Batch 집계 오류를 Java/MyBatis에서 직접 수정하고, 출석·랜덤 리워드·응모권 이벤트 Backend를 직접 개발·배포·운영하는 등 **분석에서 끝나지 않고 실제 코드 수정과 운영까지 수행**해 왔습니다.
 
@@ -30,10 +32,11 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 ### Product / User Domain Problem Solving
 
 - 상품 · 유저 · 전시 영역을 담당하며 고객에게 노출되는 상품 데이터와 사용자 상태의 정책·정합성 검증
-- Wishlist Soft Delete 적용으로 현재 찜 상태와 상품별 집계 조건이 어긋나는 문제를 발견하고 **Hard Delete + 상품 삭제 시 연관 Wishlist 정리** 정책 제안
+- Wishlist Soft Delete로 현재 찜 상태와 상품별 집계 조건이 어긋나는 문제를 발견하고 팀·개발리더와 논의해 **Hard Delete + 상품 삭제 시 연관 Wishlist 정리** 정책으로 합의
+- Shop / Admin의 상품 삭제 판정 기준을 `product_status_code = DELETED`에서 **`is_deleted`로 통일**해 동일한 도메인 규칙을 적용
 - 상품 가격 이력의 경계 중복/누락을 막기 위해 **반개구간 `[start, end)`** 정책 정의
 - 가격 이력의 Application/DB 시간 정밀도를 **마이크로초 단위로 통일**하고 화면의 분 단위 입력은 초·마이크로초를 고정값으로 정규화하도록 기준 수립
-- UI, Application, DB가 서로 다른 시간 해석을 갖지 않도록 저장·조회 계약을 하나의 정책으로 정리
+- 주문 당시 회원등급 정책은 Snapshot으로 보존하되, 변동 가능한 최종 포인트는 저장하지 않고 지급 시점에 재계산하도록 정책 결정
 
 ### AI + Commerce Domain Engineering
 
@@ -68,7 +71,7 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 ## Core Skills
 
 - **Backend**: Java, Spring, Spring Boot, Spring Batch, MyBatis, JPA, QueryDSL
-- **Commerce Domain**: Product, User, Display, Recommendation Policy, Wishlist, Event, Migration
+- **Commerce Domain**: Product, User, Display, Recommendation Policy, Wishlist, Point, Event, Migration
 - **Data**: PostgreSQL, MySQL, MSSQL, Oracle, Redis, DynamoDB
 - **Cloud / Runtime**: AWS EC2, ECS(EC2/Fargate), ALB/ELB, S3, CloudFront, Route53, CloudWatch
 - **Delivery / Operations**: CodePipeline, CodeBuild, CodeDeploy, Jenkins, Docker, Airflow, ELK
@@ -84,9 +87,9 @@ Java/Spring 기반으로 백엔드 서비스를 개발해 왔으며, 현재는 �
 **개발팀 과장 · Backend Engineer**  
 **2026.01 — Present**
 
-레거시 쇼핑몰을 신규 커머스 플랫폼으로 전환하는 과정에서 **상품 · 유저 · 전시 영역을 담당**하고 있습니다. 상품 가격·노출 정책, 사용자 상태, 추천/전시 데이터, 이벤트 Backend와 Batch 데이터 검증, AWS 실행 환경, 데이터·이미지 마이그레이션을 함께 다루고 있습니다.
+레거시 쇼핑몰을 신규 커머스 플랫폼으로 전환하는 과정에서 **상품 · 유저 · 전시 영역을 담당**하고 있습니다. 상품 가격·노출 정책, 사용자 상태, 추천/전시 데이터, 포인트·이벤트 Backend와 Batch 데이터 검증, AWS 실행 환경, 데이터·이미지 마이그레이션을 함께 다루고 있습니다.
 
-### 1. AI 기반 Wishlist 리빌딩 검증 및 데이터 수명주기 재정의
+### 1. AI 기반 Wishlist 리빌딩 검증 및 상품 삭제 정책 통일
 
 **Java · Spring Boot · JPA / QueryDSL · PostgreSQL · Spring Batch**
 
@@ -100,30 +103,33 @@ AI를 활용해 리빌딩한 Wishlist 영역에서 개발 과정 중 적용된 *
 - Soft Delete를 적용하면 모든 조회·집계·추천 로직이 동일한 삭제 조건을 지속적으로 따라야 함
 - 상품 삭제 시 Wishlist 관계가 남으면 고객 찜 목록과 상품별 찜 집계가 서로 다른 의미를 가질 수 있음
 - 이력이 실제 비즈니스 요구라면 현재 상태 테이블에 삭제 row를 누적하기보다 **현재 상태와 History의 책임을 분리**하는 편이 명확함
+- 기존에는 상품 삭제 여부를 `product_status_code = DELETED`와 `is_deleted`가 혼재해 판단하고 있어 Shop/Admin/Batch 간 조건 불일치 가능성이 있었음
 
-#### 제안한 방향
+#### 팀과 합의해 공통 적용한 정책
 
-- 이력 요구가 없는 현재 Wishlist는 **Hard Delete**로 단순화
-- 상품 삭제 시 해당 상품을 참조하는 고객의 Wishlist도 함께 정리하도록 데이터 수명주기 정책 정의
-- 향후 행동 이력이 필요해질 경우 `Wishlist Current State`와 별도 `Wishlist History`를 분리하는 구조 검토
-- 상품별 찜 수를 매일 전체 재집계하기보다 **찜 추가/해제 시 증분 반영**하고, Batch는 정합성 보정(Reconciliation) 용도로 사용하는 방향 검토
+- 상품 삭제 여부는 **`product.is_deleted`를 단일 기준으로 사용**하고 `product_status_code = DELETED` 의존 제거
+- 동일 기준을 **Shop과 Admin에 공통 적용**해 상품 삭제의 의미를 하나로 통일
+- 상품 삭제 시 해당 상품을 참조하는 연관 데이터를 함께 정리
+- `member_product_wish`는 이력 요구가 없는 현재 정책에 맞춰 **물리 삭제(Hard Delete)**
+- 향후 행동 이력이 실제 요구사항이 되면 현재 상태 테이블을 Soft Delete하는 대신 별도 History 모델을 두는 방향으로 분리
+
+개인 의견으로 끝내지 않고 문제와 대안을 정리해 팀과 개발리더에게 설명했고, **Shop/Admin이 동일한 삭제 규칙을 사용하도록 공통 정책으로 합의·반영**했습니다.
+
+상품별 찜 수 집계는 현재 일 단위 Batch 재집계 방식이지만, 찜 추가/해제 시 증분 반영하고 Batch는 정합성 보정(Reconciliation) 용도로 사용하는 방향도 후속 개선안으로 검토하고 있습니다.
 
 ```mermaid
 flowchart TD
     A[AI Rebuild] --> B[Soft Delete Applied]
     B --> C[Query / Aggregation Mismatch]
-    C --> D{Is Wish History Required?}
-    D -->|No| E[Hard Delete Current State]
-    D -->|Yes| F[Separate History Responsibility]
-    E --> G[Incremental Wish Count]
-    G --> H[Display / Ranking]
-    I[Periodic Reconciliation] --> G
-    J[Product Delete] --> K[Related Wishlist Cleanup]
+    C --> D[Revisit Domain Requirement]
+    D --> E[Product deletion = is_deleted]
+    E --> F[Shop / Admin same rule]
+    F --> G[Product Delete]
+    G --> H[Related Data Cleanup]
+    H --> I[Wishlist Hard Delete]
 ```
 
-AI는 기존 방식을 빠르게 재구현하는 도구로 활용했지만, **생성된 구조가 실제 도메인 의미와 맞는지는 별도로 검증해야 한다**고 판단했습니다. 관례적으로 Soft Delete를 유지하기보다 필요한 상태와 이력을 구분하고, 불필요한 데이터 상태와 Batch 의존성을 줄이는 방향으로 정리해 개발팀에 전달했습니다.
-
-이 방향은 정책·구조 제안 단계이며, 실제 반영이 완료된 항목과는 구분해 기재합니다.
+이 사례에서 AI는 기존 방식을 빠르게 재구현하는 도구로 활용했지만, **생성된 구조가 실제 도메인 의미와 맞는지는 별도로 검증해야 한다**고 판단했습니다. 관례적인 Soft Delete보다 현재 상태·이력·연관 데이터의 수명주기를 명확히 정의하고, 여러 애플리케이션이 같은 도메인 규칙을 사용하도록 정리했습니다.
 
 ---
 
@@ -164,7 +170,48 @@ flowchart LR
 
 ---
 
-### 3. Commerce Display System 인수·검증
+### 3. 주문 시점 회원등급 Snapshot과 포인트 계산 책임 설계
+
+**Java · Spring Boot · PostgreSQL · Domain Policy**
+
+구매 포인트는 “지급 시점의 회원등급”이 아니라 **주문 당시 적용된 회원등급 정책**을 기준으로 계산해야 했습니다. 주문 이후 회원등급이나 등급별 지급 정책이 바뀌더라도 과거 주문의 지급 기준은 변하면 안 되기 때문에, 계산의 근거가 되는 정책값을 주문 시점에 보존하도록 구조를 정리했습니다.
+
+#### 주문 시점에 보존하도록 정의한 값
+
+`order_item_post_delivery`에 다음 값을 Snapshot으로 보존하도록 제안했습니다.
+
+- `member_tier_id`: 주문 당시 회원등급
+- `member_tier_receive_point_rate`: 주문 당시 등급별 비율 포인트
+- `member_tier_receive_point_amount`: 주문 당시 등급별 정액 포인트
+
+현재 회원정보나 최신 `member_tier`를 지급 시점에 다시 조회하지 않고, **주문 당시 확정된 정책의 입력값을 보존**하는 것이 핵심입니다.
+
+#### 저장하지 않기로 한 값
+
+초기에는 최종 지급 예정 포인트인 `point_reward_amount`도 주문 시점에 계산해 저장하는 방안을 제안했습니다.
+
+하지만 개발리더와 검토하면서 다음 변경 가능성을 확인했습니다.
+
+- 배송 전후 주문 수량이 변경될 수 있음
+- 일부/전체 취소가 발생할 수 있음
+- 포인트 지급 후 취소로 회수하고 다시 지급해야 하는 경우가 생길 수 있음
+
+따라서 최종 지급액까지 미리 저장하면 상태 변경 때마다 파생값을 계속 갱신해야 하고, 원천 상태와 계산 결과가 어긋날 가능성이 커집니다. 이에 따라 **주문 당시 정책 Snapshot만 저장하고, 실제 지급액은 지급 시점의 유효 수량·취소 상태와 Snapshot 정책을 이용해 계산**하는 것으로 결정했습니다.
+
+```mermaid
+flowchart LR
+    A[Order Created] --> B[Snapshot Tier ID / Rate / Amount]
+    B --> C[Delivery / Quantity / Cancel changes]
+    C --> D[Point Grant Time]
+    D --> E[Recalculate Reward]
+    E --> F[Grant Point]
+```
+
+이 사례에서는 무엇을 저장할지보다 **변하지 않아야 하는 입력값과 계속 변할 수 있는 파생값을 구분**했습니다. 처음 제안한 `point_reward_amount`를 고집하지 않고, 개발리더와 상태 변화 시나리오를 검토한 뒤 더 단순하고 정합성을 유지하기 쉬운 방향으로 설계를 수정했습니다.
+
+---
+
+### 4. Commerce Display System 인수·검증
 
 **Java · Spring Boot · JPA · QueryDSL · PostgreSQL**
 
@@ -204,7 +251,7 @@ flowchart TD
 
 ---
 
-### 4. Display Preview Policy 검증
+### 5. Display Preview Policy 검증
 
 전시 운영자가 공개 전 콘텐츠를 확인하는 Preview 기능에서 노출 OFF·노출 기간 전후 콘텐츠가 어떤 조건까지 우회되고, 어떤 상품 조건은 그대로 유지되는지 확인했습니다.
 
@@ -225,7 +272,7 @@ flowchart TD
 
 ---
 
-### 5. Recommendation Product Policy & Serving
+### 6. Recommendation Product Policy & Serving
 
 **Java · Spring Boot · JPA / QueryDSL · PostgreSQL · Spring Batch**
 
@@ -269,7 +316,7 @@ flowchart TD
 
 ---
 
-### 6. Recommendation Selection / Presentation 책임 분리 제안
+### 7. Recommendation Selection / Presentation 책임 분리 제안
 
 현재 추천 상품은 상품 선정 정책은 Admin에서 관리하지만 화면 표현 방식은 프론트 구현에 의해 고정되어 있습니다.
 
@@ -296,7 +343,7 @@ flowchart LR
 
 ---
 
-### 7. Batch Data Consistency — 발견에서 코드 수정까지
+### 8. Batch Data Consistency — 발견에서 코드 수정까지
 
 **Spring Batch · Java · MyBatis · PostgreSQL · Airflow · Docker · LocalStack**
 
@@ -330,7 +377,7 @@ Java / MyBatis 수정
 
 ---
 
-### 8. AI-assisted Batch Engineering
+### 9. AI-assisted Batch Engineering
 
 AI를 활용해 재구현된 Batch Job을 기존 서비스 코드와 원천 데이터, 실제 정책을 기준으로 검증·수정하고 있습니다.
 
@@ -344,7 +391,7 @@ AI를 활용해 재구현된 Batch Job을 기존 서비스 코드와 원천 데�
 
 ---
 
-### 9. 쇼핑몰 이벤트 플랫폼 개발 및 운영
+### 10. 쇼핑몰 이벤트 플랫폼 개발 및 운영
 
 **2026.03 — 2026.04**  
 **Spring Boot · PostgreSQL · AWS ECS(EC2) · ALB · CodePipeline · CodeBuild · CodeDeploy · ELK**
@@ -369,7 +416,7 @@ AI를 활용해 재구현된 Batch Job을 기존 서비스 코드와 원천 데�
 
 ---
 
-### 10. Commerce Product / Image Migration
+### 11. Commerce Product / Image Migration
 
 **MSSQL · PostgreSQL · AWS S3 · CloudFront**
 
@@ -456,13 +503,17 @@ MSA의 서비스 경계와 비동기 이벤트 처리를 직접 설계해보기 
 
 Soft Delete 여부나 시간 컬럼 정밀도처럼 구현 세부사항으로 보이는 문제도 결국 도메인이 어떤 상태와 이력을 필요로 하는지의 문제라고 생각합니다. 현재 상태와 History, 가격의 시작·종료 경계처럼 **데이터가 의미하는 바를 먼저 정의한 뒤 구현 규칙으로 내립니다.**
 
+### 변하지 않는 원천과 변할 수 있는 파생값을 구분합니다
+
+주문 당시 회원등급처럼 나중에 바뀌면 안 되는 정책 입력값은 Snapshot으로 보존하지만, 수량·취소 상태에 따라 달라질 수 있는 최종 포인트처럼 파생된 값은 섣불리 저장하지 않습니다. **정합성을 위해 무엇을 저장하지 않을지도 설계의 일부**라고 생각합니다.
+
 ### 설정값이 아니라 실제 실행 경로를 봅니다
 
 Admin에 옵션이 있고 DB에 값이 저장되더라도 실제 서비스 Query에서 사용되지 않으면 사용자에게는 동작하지 않는 기능입니다. 화면 → API → Backend → DB → 최종 노출까지 연결해 확인합니다.
 
 ### 발견에서 끝내지 않습니다
 
-문제의 원인을 데이터와 코드로 확인하고 직접 수정할 수 있는 범위라면 수정 후 테스트와 재실행으로 결과를 검증합니다. 반대로 아직 수정 권한이나 정책 결정이 필요한 부분은 분석·제안과 구현 완료를 명확히 구분합니다.
+문제의 원인을 데이터와 코드로 확인하고 직접 수정할 수 있는 범위라면 수정 후 테스트와 재실행으로 결과를 검증합니다. 정책 결정이 필요한 문제라면 대안과 trade-off를 정리해 동료와 합의하고, **여러 서비스가 같은 규칙을 사용하도록 공통 기준으로 만드는 것**까지 포함합니다.
 
 ### 재사용보다 책임 경계를 먼저 봅니다
 
