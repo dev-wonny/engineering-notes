@@ -5,7 +5,6 @@
 ## 작성된 사례
 
 - [Temporal Table 설계 사례](temporal-table-design.md)
-- [공개 전환 후보 인벤토리](source-document-inventory.md)
 
 ## 작성 예정
 
