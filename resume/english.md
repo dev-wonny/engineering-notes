@@ -87,8 +87,7 @@ Vertical fresh-food e-commerce company operating **Dolfarmer**, an agricultural 
 ## Future Platform
 
 **Service Development Team Lead** · **Jun 2025 — Dec 2025**  
-Enterprise software company delivering application-development projects, including public-sector information systems.  
-[Company Website](http://fuples.co.kr)
+Enterprise software company delivering application-development projects, including public-sector information systems.
 
 ### Self-hosted Analytics Under Government Security Constraints · 2025
 
