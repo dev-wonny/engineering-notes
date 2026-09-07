@@ -6,6 +6,8 @@ outline: false
 
 # JEONGWON HAN
 
+<img src="https://avatars.githubusercontent.com/u/161826579?v=4" alt="Jeongwon Han profile photo" width="144" style="border-radius: 18px; margin: 8px 0 18px;" />
+
 **Backend & Cloud Engineer · Production Problem Solver**  
 Seoul, South Korea
 
@@ -183,9 +185,9 @@ Prometheus · Grafana · Loki · GitHub Actions
 
 # Education
 
-## Hansung University
+## Dongyang Mirae University
 
-**Bachelor’s Degree in Computer Science** · **Feb 2009 — Mar 2016**
+**Associate Degree in Computer Software Engineering** · **Mar 2014 — Feb 2016**
 
 ---
 
