@@ -182,6 +182,14 @@ Prometheus · Grafana · Loki · GitHub Actions
 
 ---
 
+# Education
+
+## Hansung University
+
+**Bachelor’s Degree in Computer Science** · **Feb 2009 — Mar 2016**
+
+---
+
 # How I Work
 
 ### 1. Observe
