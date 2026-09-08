@@ -32,3 +32,4 @@
 - Use static image URLs with product-context / contribution captions. A screenshot does not prove traffic metrics or UI ownership; the Coopang architecture is a personal learning project, not production evidence.
 - `npm run docs:build` runs `scripts/check-english-resume.mjs`, checking compiled HTML, required company/project content, confirmed dates, coursework, links, and verified asset hashes. Update checks only for intentional, user-confirmed content or visually verified image changes.
 - After deployment, inspect the Pages artifact and verify the English page at mobile width with JavaScript disabled as well as enabled. Do not equate a source commit with confirmed live-page rendering.
+- Exception (user request): omit the retired Future Platform company website (`fuples.co.kr`) from the English resume. Keep its role, dates, Food Safety Korea link, and Notion reference.

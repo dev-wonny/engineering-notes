@@ -36,11 +36,13 @@ assert(source.includes('engineers responsible for migration execution'),
 assert(!/<ClientOnly\b|\bfetch\s*\(|\binnerHTML\b|\bouterHTML\b/.test(source),
   'Do not load resume content or images by client-side DOM composition.');
 for (const url of [
-  'https://www.dolfarmer.com', 'https://www.fuples.co.kr',
+  'https://www.dolfarmer.com', 'https://www.foodsafetykorea.go.kr/main.do',
   'https://www.doubledowninteractive.com', 'https://www.ad-max.co.kr',
   'https://www.notion.so/29a47d0245aa804783dbca0ff82ebed3',
   'https://github.com/dev-wonny/coopang/wiki',
 ]) assert(main.includes(url), `Missing company or evidence link: ${url}`);
+assert(!source.includes('https://www.fuples.co.kr') && !main.includes('https://www.fuples.co.kr'),
+  'Future Platform company URL was removed at user request; do not restore it.');
 
 // These hashes identify image bytes that were decoded and visually reviewed.
 const assets = [

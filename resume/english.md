@@ -80,7 +80,7 @@ Java · Spring Boot · AWS ECS (EC2) · Aurora · S3
 
 **Service Development Team Lead** · **Jun 2025 – Dec 2025**  
 Public-sector backend development and team delivery-process improvements.  
-[Company Website](https://www.fuples.co.kr) · [Food Safety Korea](https://www.foodsafetykorea.go.kr/main.do)
+[Food Safety Korea](https://www.foodsafetykorea.go.kr/main.do)
 
 #### Public-sector Backend, SSO & Development Environment
 **Jun 2025 – Dec 2025**  
