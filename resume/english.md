@@ -185,9 +185,10 @@ Prometheus · Grafana · Loki · GitHub Actions
 
 # Education
 
-## Dongyang Mirae University
+## Hansung University
 
-**Associate Degree in Computer Software Engineering** · **Mar 2014 — Feb 2016**
+**B.A. in Public Administration**  
+Minor in **Multimedia Engineering** · GPA **3.63 / 4.0** · **2016**
 
 ---
 
