@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>Jeongwon Han | Cloudflare Resume</title>
-  <meta name="description" content="Backend / Platform Engineer focused on production troubleshooting, traffic analysis, AWS origin-side systems, and technical problem solving.">
+  <meta name="description" content="Backend / Platform Engineer combining production troubleshooting, traffic analysis, AWS origin-side systems, and customer-facing technical communication.">
   <link rel="canonical" href="https://dev-wonny.github.io/engineering-notes/resume/cloudflare">
   <style>
     :root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; color: #202b38; background: #edf0f3; }
@@ -25,10 +25,10 @@
     .contact a { white-space: nowrap; }
     .summary { margin-top: 19px; padding-top: 16px; border-top: 2px solid #29455e; }
     .summary p + p { margin-top: 7px; }
-    .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 15px; }
-    .impact { border: 1px solid #d7dfe6; padding: 10px 10px 9px; background: #f8fafb; min-height: 74px; }
-    .impact strong { display: block; font-size: 19px; line-height: 1.05; color: #18324b; }
-    .impact span { display: block; margin-top: 4px; font-size: 10.5px; line-height: 1.25; color: #5b6876; }
+    .impact-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; margin-top: 15px; }
+    .impact { border: 1px solid #d7dfe6; padding: 10px 9px 9px; background: #f8fafb; min-height: 76px; }
+    .impact strong { display: block; font-size: 18px; line-height: 1.05; color: #18324b; }
+    .impact span { display: block; margin-top: 4px; font-size: 10px; line-height: 1.25; color: #5b6876; }
     h2 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #29455e; margin: 23px 0 13px; padding-bottom: 7px; border-bottom: 1px solid #ccd5de; }
     .company + .company { margin-top: 23px; padding-top: 16px; border-top: 1px solid #dce2e7; }
     .company-head, .project-head, .education-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 18px; flex-wrap: wrap; }
@@ -47,8 +47,8 @@
     .continued { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 2px solid #29455e; margin-bottom: 18px; font-size: 11px; letter-spacing: .06em; color: #526071; }
     .continued strong { font-size: 12px; }
     .continued span { text-transform: uppercase; letter-spacing: .10em; }
-    .skills, .language { font-size: 12.5px; }
-    .skills p + p, .language p + p { margin-top: 5px; }
+    .skills, .language, .community { font-size: 12.5px; }
+    .skills p + p, .language p + p, .community p + p { margin-top: 5px; }
     .education h3 { font-size: 15px; }
     .education p { font-size: 12.5px; margin-top: 4px; }
     @media (max-width: 940px) {
@@ -73,37 +73,37 @@
     @page { size: A4; margin: 12mm 14mm; }
     @media print {
       :root, body { background: #fff; }
-      body { font-size: 9.6pt; line-height: 1.26; }
+      body { font-size: 9.4pt; line-height: 1.24; }
       .no-print { display: none !important; }
       .sheet { max-width: none; margin: 0; padding: 0; border: 0; }
       .sheet + .sheet { break-before: page; }
       h1 { font-size: 25pt; }
       .role { font-size: 13pt; margin-top: 5pt; }
       .focus { font-size: 8pt; margin-top: 3pt; }
-      .contact { margin-top: 8pt; font-size: 8.7pt; gap: 2pt 11pt; }
-      .summary { margin-top: 11pt; padding-top: 8pt; }
-      .summary p + p { margin-top: 4pt; }
-      .impact-grid { margin-top: 8pt; gap: 5pt; }
-      .impact { min-height: 0; padding: 6pt; }
-      .impact strong { font-size: 13pt; }
-      .impact span { font-size: 7pt; }
-      h2 { margin: 10pt 0 6pt; font-size: 8.5pt; padding-bottom: 4pt; }
+      .contact { margin-top: 8pt; font-size: 8.5pt; gap: 2pt 11pt; }
+      .summary { margin-top: 10pt; padding-top: 7pt; }
+      .summary p + p { margin-top: 3.5pt; }
+      .impact-grid { margin-top: 7pt; gap: 4pt; }
+      .impact { min-height: 0; padding: 5pt; }
+      .impact strong { font-size: 11.5pt; }
+      .impact span { font-size: 6.5pt; }
+      h2 { margin: 9pt 0 5pt; font-size: 8.3pt; padding-bottom: 4pt; }
       h3 { font-size: 13pt; }
-      h4 { font-size: 9.5pt; }
-      .date { font-size: 8.5pt; }
-      .job-role { font-size: 9pt; margin-top: 2pt; }
-      .company-context { font-size: 8.6pt; margin-top: 3pt; }
-      .company-links { font-size: 8pt; margin-top: 2pt; }
-      .company + .company { margin-top: 9pt; padding-top: 7pt; }
+      h4 { font-size: 9.3pt; }
+      .date { font-size: 8.3pt; }
+      .job-role { font-size: 8.8pt; margin-top: 2pt; }
+      .company-context { font-size: 8.4pt; margin-top: 3pt; }
+      .company-links { font-size: 7.8pt; margin-top: 2pt; }
+      .company + .company { margin-top: 8pt; padding-top: 6pt; }
       .project { margin-top: 5pt; break-inside: avoid; }
-      .project-head .date { font-size: 8pt; }
+      .project-head .date { font-size: 7.8pt; }
       ul { margin-top: 3pt; padding-left: 11pt; }
-      li + li { margin-top: 2pt; }
+      li + li { margin-top: 1.8pt; }
       h2, h3, h4, .company-head, .job-role, .company-context, .company-links { break-after: avoid; }
-      .continued { font-size: 8pt; margin-bottom: 9pt; padding-bottom: 6pt; }
-      .skills, .language { font-size: 8.7pt; }
-      .education h3 { font-size: 10.5pt; }
-      .education p { font-size: 8.7pt; margin-top: 2pt; }
+      .continued { font-size: 8pt; margin-bottom: 8pt; padding-bottom: 6pt; }
+      .skills, .language, .community { font-size: 8.4pt; }
+      .education h3 { font-size: 10.3pt; }
+      .education p { font-size: 8.4pt; margin-top: 2pt; }
       a { color: inherit; }
     }
   </style>
@@ -119,7 +119,7 @@
       <header>
         <h1>JEONGWON HAN</h1>
         <p class="role">Backend / Platform Engineer</p>
-        <p class="focus">Production Troubleshooting · Traffic Analysis · AWS Origin-side Systems</p>
+        <p class="focus">Production Troubleshooting · Customer-facing Technical Communication · Traffic Analysis</p>
         <div class="contact">
           <span>Seoul, South Korea</span>
           <a href="mailto:devwonny@gmail.com">devwonny@gmail.com</a>
@@ -130,11 +130,14 @@
 
       <section class="summary" aria-label="Professional summary">
         <p>Backend and platform engineer with <strong>5+ years of experience</strong> operating production systems across global gaming, AdTech, e-commerce and public-sector environments. Experienced in Java/Spring backend development, traffic-intensive services, AWS execution environments, batch processing and data migration.</p>
-        <p>Strong at diagnosing unclear production behavior across <strong>HTTP request flows, applications, data and infrastructure</strong>, then turning findings into practical technical actions with engineering, product, operations and external partners. Particularly confident in <strong>production troubleshooting, request-flow analysis, origin-side architecture and technical communication</strong>.</p>
+        <p>Strong at diagnosing unclear production behavior across <strong>HTTP request flows, applications, data and infrastructure</strong>, then translating technical findings into practical actions with engineering, product, operations and external partners.</p>
+        <p>Since <strong>October 2021</strong>, I have founded and operated a developer community that has grown to <strong>400+ members</strong>, organizing weekly study sessions and technical discussions. This has strengthened my ability to explain complex topics, facilitate conversations across different experience levels and build long-term trust within technical communities.</p>
+        <p>I am pursuing <strong>Customer Engineering</strong> to combine this production depth with customer-facing technical discovery, solution design and communication — particularly around networking, security, performance and origin architecture.</p>
       </section>
 
       <section class="impact-grid" aria-label="Selected quantified impact">
         <div class="impact"><strong>1.23M DAU</strong><span>Global gaming production service</span></div>
+        <div class="impact"><strong>400+ Members</strong><span>Developer community founded in 2021</span></div>
         <div class="impact"><strong>40+ Jobs</strong><span>Production batch portfolio under direct code ownership</span></div>
         <div class="impact"><strong>20%↓ Traffic</strong><span>Unnecessary advertising requests</span></div>
         <div class="impact"><strong>90%↓ Manual Work</strong><span>Marketing email operations</span></div>
@@ -232,6 +235,12 @@
           </ul>
         </section>
       </article>
+
+      <h2>Community Leadership</h2>
+      <section class="community">
+        <p><strong>Developer Community Founder &amp; Organizer</strong> · Oct 2021 – Present</p>
+        <p>Founded and operate a developer community with <strong>400+ members</strong>, organizing weekly study sessions and technical discussions. Facilitate conversations across different experience levels, explain technical concepts, and maintain long-term community engagement — experience I want to bring into customer discovery and technical solution conversations.</p>
+      </section>
 
       <h2>Technical Skills</h2>
       <section class="skills">
