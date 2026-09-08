@@ -86,7 +86,7 @@ Public-sector backend development and team delivery-process improvements.
 **Jun 2025 – Dec 2025**  
 Java 8 · Spring 4.x · MyBatis · Oracle · JBoss EAP 7.4 · Docker · Jenkins · Nexus
 
-- Developed education management, reviewer performance management, and crisis-response volume visualization for Ministry of Food and Drug Safety projects; implemented **AnyID integrated login / SSO**.
+- Developed education management, reviewer performance management, and crisis-response volume visualization for Ministry of Food and Drug Safety projects. Provided technical guidance on **AnyID login / SSO integration**.
 - Documented local execution and deployment procedures in a closed-network environment and standardized Nexus dependency-version management, reducing development-environment setup time by approximately **two weeks**.
 - Built an internal onboarding and work-management back office in **one day**, and introduced code reviews and technical discussions to improve team collaboration.
 - Deployed self-hosted **Matomo on Google Cloud** to support usage analysis before and after UI/UX changes, providing an alternative to external analytics SaaS under the project's data-governance constraints.

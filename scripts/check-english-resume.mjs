@@ -46,6 +46,20 @@ for (const url of [
 assert(!source.includes('https://www.fuples.co.kr') && !main.includes('https://www.fuples.co.kr'),
   'Future Platform company URL was removed at user request; do not restore it.');
 
+// AnyID was integration guidance, not personal implementation, in both English versions.
+const anyIdGuidance = 'Provided technical guidance on AnyID login / SSO integration';
+for (const [path, content] of [
+  ['resume/english.md', source],
+  ['.vitepress/dist/resume/english.html', main],
+  ['public/resume/cloudflare.html', readFileSync('public/resume/cloudflare.html', 'utf8')],
+  ['.vitepress/dist/resume/cloudflare.html', readFileSync('.vitepress/dist/resume/cloudflare.html', 'utf8')],
+]) {
+  const plain = content.replace(/<[^>]+>/g, '').replace(/\*\*/g, '').replace(/\s+/g, ' ');
+  assert(plain.includes(anyIdGuidance), `Missing confirmed AnyID guidance scope: ${path}`);
+  assert(!/\b(?:implemented|built|developed)\s+Any[- ]?ID\b/i.test(plain),
+    `Do not claim personal AnyID implementation: ${path}`);
+}
+
 // Deeplink TTL belongs to application-server Local Cache entries, not DynamoDB items.
 const deeplink = source.match(/#### Internal Deeplink & Short URL Platform\n([\s\S]*?)(?=\n#### |\n### |\n## |$)/)?.[1];
 assert(deeplink, 'Retain the Internal Deeplink project.');
@@ -77,4 +91,4 @@ for (const [name, expected] of assets) {
   assert(main.includes(`/engineering-notes/resume/assets/${name}`),
     `Missing or incorrect deployed image URL: ${name}`);
 }
-console.log('English resume checks passed: static content, dates, links, coursework, image integrity, and Deeplink cache behavior.');
+console.log('English resume checks passed: static content, dates, links, coursework, image integrity, Deeplink cache behavior, and AnyID guidance scope.');
