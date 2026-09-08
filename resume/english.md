@@ -120,8 +120,9 @@ Java · Spring · MySQL · EC2 · Docker · ELK
 **Oct 2023 – Dec 2023**  
 Java · Spring · DynamoDB · Redis · ECS · Docker
 
-- Built an internal Short URL / Deeplink platform to replace Bitly, including duplicate prevention, DynamoDB TTL-based lifecycle management, and administrative search and deletion.
-- Applied local caching to reduce **DynamoDB access by approximately 30%** and enabled non-engineering teams to manage routine link operations directly.
+- Built an internal Deeplink platform to replace Bitly, using **DynamoDB for persistence** and **server-side local caching with TTL-based expiration**, reducing **DynamoDB access by approximately 30%**.
+- Served frequently accessed deeplinks from the application server's local cache without querying DynamoDB while the cache entry remained valid. After expiration, the next request reloaded the deeplink from DynamoDB and refreshed the cache.
+- Implemented duplicate prevention and administrative search and deletion, enabling non-engineering teams to manage routine links directly.
 
 #### Marketing Email Automation
 **Jun 2023 – Aug 2023**  

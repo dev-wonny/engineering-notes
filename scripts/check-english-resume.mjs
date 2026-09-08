@@ -46,6 +46,22 @@ for (const url of [
 assert(!source.includes('https://www.fuples.co.kr') && !main.includes('https://www.fuples.co.kr'),
   'Future Platform company URL was removed at user request; do not restore it.');
 
+// Deeplink TTL belongs to application-server Local Cache entries, not DynamoDB items.
+const deeplink = source.match(/#### Internal Deeplink & Short URL Platform\n([\s\S]*?)(?=\n#### |\n### |\n## |$)/)?.[1];
+assert(deeplink, 'Retain the Internal Deeplink project.');
+const deeplinkText = deeplink.replace(/\*\*/g, '');
+for (const required of [
+  'DynamoDB for persistence',
+  'server-side local caching with TTL-based expiration',
+  'After expiration, the next request reloaded the deeplink from DynamoDB and refreshed the cache.',
+  'DynamoDB access by approximately 30%',
+]) {
+  assert(deeplinkText.includes(required) && text.includes(required),
+    `Missing confirmed Deeplink caching behavior: ${required}`);
+}
+assert(!/DynamoDB\s+TTL|TTL[- ]based\s+(?:link\s+)?lifecycle/i.test(deeplinkText),
+  'Do not describe Local Cache expiration as DynamoDB TTL or link lifecycle management.');
+
 // These hashes identify image bytes that were decoded and visually reviewed.
 const assets = [
   ['event-verified.webp', '6083eee9862725cd8e390b7ad482d85266c5bafc'],
@@ -61,4 +77,4 @@ for (const [name, expected] of assets) {
   assert(main.includes(`/engineering-notes/resume/assets/${name}`),
     `Missing or incorrect deployed image URL: ${name}`);
 }
-console.log('English resume checks passed: static content, dates, links, coursework, and image integrity.');
+console.log('English resume checks passed: static content, dates, links, coursework, image integrity, and Deeplink cache behavior.');
