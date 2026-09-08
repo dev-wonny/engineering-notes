@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Jeongwon Han | Cloudflare Resume</title>
+  <meta name="description" content="Backend / Platform Engineer with experience in global gaming, advertising traffic, AWS production services, and technical problem solving.">
+  <link rel="canonical" href="https://dev-wonny.github.io/engineering-notes/resume/cloudflare">
+  <style>
+    :root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; color: #202b38; background: #edf0f3; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-size: 15px; line-height: 1.48; -webkit-text-size-adjust: 100%; }
+    a { color: #294c6b; text-decoration: none; text-underline-offset: 3px; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #294c6b; outline-offset: 4px; }
+    .tools { max-width: 900px; margin: 0 auto; padding: 20px 0 14px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; }
+    .tools a { color: #455566; }
+    button { font: inherit; font-weight: 600; color: #fff; background: #243e57; border: 0; border-radius: 5px; padding: 10px 15px; cursor: pointer; }
+    .sheet { max-width: 900px; margin: 0 auto 24px; padding: 42px 54px 30px; background: #fff; border: 1px solid #dbe1e7; }
+    h1, h2, h3, h4, p { margin: 0; }
+    h1 { font-size: 32px; line-height: 1.1; letter-spacing: .04em; font-weight: 750; color: #18324b; }
+    .role { font-size: 18px; margin-top: 7px; color: #33465b; }
+    .contact { display: flex; flex-wrap: wrap; column-gap: 15px; row-gap: 3px; margin-top: 12px; font-size: 12.5px; color: #495667; }
+    .contact a { white-space: nowrap; }
+    .summary { margin-top: 19px; padding-top: 16px; border-top: 2px solid #29455e; }
+    .summary p + p { margin-top: 7px; }
+    h2 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #29455e; margin: 23px 0 13px; padding-bottom: 7px; border-bottom: 1px solid #ccd5de; }
+    .company + .company { margin-top: 23px; padding-top: 16px; border-top: 1px solid #dce2e7; }
+    .company-head, .project-head, .education-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 18px; flex-wrap: wrap; }
+    h3 { font-size: 19px; line-height: 1.2; color: #18324b; }
+    .date { font-size: 12px; color: #526071; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .job-role { margin-top: 3px; font-weight: 600; font-size: 13.5px; }
+    .company-context { margin-top: 5px; font-size: 12.5px; line-height: 1.45; color: #526071; }
+    .company-links { font-size: 12px; margin-top: 3px; }
+    .project { margin-top: 13px; }
+    h4 { font-size: 13.5px; font-weight: 700; line-height: 1.35; color: #263e54; }
+    .project-head .date { font-size: 11.5px; }
+    ul { margin: 6px 0 0; padding-left: 17px; }
+    li { padding-left: 2px; }
+    li + li { margin-top: 5px; }
+    strong { font-weight: 700; color: #20394f; }
+    .continued { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 2px solid #29455e; margin-bottom: 18px; font-size: 11px; letter-spacing: .06em; color: #526071; }
+    .continued strong { font-size: 12px; }
+    .continued span { text-transform: uppercase; letter-spacing: .10em; }
+    .skills { font-size: 12.5px; }
+    .skills p + p { margin-top: 5px; }
+    .skills strong { display: inline; }
+    .education h3 { font-size: 15px; }
+    .education p { font-size: 12.5px; margin-top: 4px; }
+    @media (max-width: 940px) {
+      .tools { margin: 0 20px; }
+      .sheet { margin: 0 20px 20px; padding: 32px 36px 26px; }
+    }
+    @media (max-width: 600px) {
+      body { background: #fff; font-size: 14px; line-height: 1.55; }
+      .tools { margin: 0; padding: 14px 20px; background: #f1f4f6; }
+      .sheet { margin: 0; padding: 28px 20px 20px; border: 0; }
+      .sheet + .sheet { padding-top: 5px; }
+      h1 { font-size: 27px; }
+      .role { font-size: 17px; }
+      .contact { font-size: 12px; column-gap: 12px; }
+      .continued { margin-top: 12px; }
+      .company-head, .project-head { display: block; }
+      .company-head .date, .project-head .date { display: block; margin-top: 4px; }
+      h3 { font-size: 19px; }
+      h4 { font-size: 14px; }
+    }
+    @page { size: A4; margin: 12mm 14mm; }
+    @media print {
+      :root, body { background: #fff; }
+      body { font-size: 10pt; line-height: 1.28; }
+      .no-print { display: none !important; }
+      .sheet { max-width: none; margin: 0; padding: 0; border: 0; }
+      .sheet + .sheet { break-before: page; }
+      h1 { font-size: 25pt; }
+      .role { font-size: 13pt; margin-top: 5pt; }
+      .contact { margin-top: 8pt; font-size: 9pt; gap: 2pt 11pt; }
+      .summary { margin-top: 12pt; padding-top: 9pt; }
+      .summary p + p { margin-top: 5pt; }
+      h2 { margin: 11pt 0 7pt; font-size: 9pt; padding-bottom: 5pt; }
+      h3 { font-size: 14pt; }
+      h4 { font-size: 10pt; }
+      .date { font-size: 9pt; }
+      .job-role { font-size: 9.5pt; margin-top: 2pt; }
+      .company-context { font-size: 9pt; margin-top: 3pt; }
+      .company-links { font-size: 8.5pt; margin-top: 2pt; }
+      .company + .company { margin-top: 11pt; padding-top: 8pt; }
+      .project { margin-top: 6pt; break-inside: avoid; }
+      .project-head .date { font-size: 8.5pt; }
+      ul { margin-top: 4pt; padding-left: 12pt; }
+      li { padding-left: 1pt; break-inside: avoid; }
+      li + li { margin-top: 2.5pt; }
+      h2, h3, h4, .company-head, .job-role, .company-context, .company-links { break-after: avoid; }
+      .continued { font-size: 8pt; margin-bottom: 10pt; padding-bottom: 7pt; }
+      .continued strong { font-size: 9pt; }
+      .skills { font-size: 9pt; }
+      .skills p + p { margin-top: 3pt; }
+      .education { break-inside: avoid; }
+      .education h3 { font-size: 11pt; }
+      .education p { font-size: 9pt; margin-top: 3pt; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="tools no-print" aria-label="Resume tools">
+    <a href="/engineering-notes/resume/english">Full English resume</a>
+    <button type="button" id="print-resume" hidden>Print / Save PDF</button>
+  </nav>
+  <main>
+    <section class="sheet" aria-label="Resume page 1">
+      <header>
+        <h1>JEONGWON HAN</h1>
+        <p class="role">Backend / Platform Engineer</p>
+        <div class="contact">
+          <span>Seoul, South Korea</span>
+          <a href="mailto:devwonny@gmail.com">devwonny@gmail.com</a>
+          <a href="tel:+821094750201">+82 10-9475-0201</a>
+          <a href="https://github.com/dev-wonny">github.com/dev-wonny</a>
+        </div>
+      </header>
+
+      <section class="summary" aria-label="Professional summary">
+        <p>Backend and platform engineer with <strong>5+ years of experience</strong> across global gaming, AdTech, e-commerce and public-sector systems. Builds Java/Spring services and investigates production behavior across HTTP request flows, applications, databases and AWS environments.</p>
+        <p>Turns unclear technical problems into practical changes: tracing unnecessary traffic to its source, validating complex batch policies, and designing alternatives under data-governance constraints. Works with engineering, product, operations and external partners to clarify requirements and technical trade-offs.</p>
+      </section>
+
+      <h2>Professional Experience</h2>
+
+      <article class="company" id="ds-global">
+        <div class="company-head">
+          <h3>DS GLOBAL</h3>
+          <p class="date">Jan 2026 – Present</p>
+        </div>
+        <p class="job-role">Backend / Platform Engineer, Development Team</p>
+        <p class="company-context">Fresh-food e-commerce company operating Dolfarmer in South Korea; rebuilding the platform for in-house operation.</p>
+        <p class="company-links"><a href="https://www.dolfarmer.com">dolfarmer.com</a></p>
+
+        <section class="project">
+          <div class="project-head"><h4>Batch Platform &amp; Reliability Validation</h4><p class="date">Aug 2026 – Present</p></div>
+          <ul>
+            <li>Validate business rules across a portfolio of <strong>40+ batch jobs</strong>; trace policy gaps, overlapping responsibilities and retry/backfill risks through schedules, Spring Batch, APIs and database state. Turn findings into reproducible tests and correction requests for developers and product stakeholders.</li>
+            <li>Proposed separating scheduling from the application using Jenkins or Airflow; work with the resulting <strong>Airflow on EC2 → ECS Fargate → Spring Batch</strong> architecture. Built a Docker / PostgreSQL / LocalStack environment to test reruns, partial failures and duplicate processing.</li>
+          </ul>
+        </section>
+
+        <section class="project">
+          <div class="project-head"><h4>Migration Criteria &amp; Image Delivery Policy</h4><p class="date">Jul 2026</p></div>
+          <ul>
+            <li>Analyzed product and supplier semantics across a legacy MSSQL system containing <strong>500+ tables</strong> and a PostgreSQL target. Documented 1:1, 1:N and N:1 mappings, domain-model trade-offs and validation criteria for the engineers responsible for migration execution.</li>
+            <li>Recovered legacy image rules from data and storefront behavior; wrote backup/validation scripts covering <strong>15,736 source images</strong> and <strong>5,053 HTML URL replacements</strong>. Aligned S3 / CloudFront storage, resizing and delivery policies with product stakeholders and the external development vendor.</li>
+          </ul>
+        </section>
+
+        <section class="project">
+          <div class="project-head"><h4>Event Platform Development</h4><p class="date">Mar 2026 – Apr 2026</p></div>
+          <ul>
+            <li>Built participation, reward and admin APIs for attendance, random-reward and raffle campaigns; a seven-day campaign recorded <strong>10,950 entries from 6,305 members</strong>. Participated in ECS/EC2 deployments using CodePipeline, CodeBuild and CodeDeploy.</li>
+          </ul>
+        </section>
+      </article>
+
+      <article class="company" id="future-platform">
+        <div class="company-head"><h3>Future Platform</h3><p class="date">Jun 2025 – Dec 2025</p></div>
+        <p class="job-role">Service Development Team Lead</p>
+        <p class="company-context">Enterprise software company delivering public-sector information systems, including Ministry of Food and Drug Safety projects.</p>
+        <p class="company-links">Project: <a href="https://www.foodsafetykorea.go.kr/main.do">Food Safety Korea</a></p>
+        <ul>
+          <li>Deployed self-hosted <strong>Matomo on a separately managed Google Cloud server</strong> when Google Analytics was unsuitable for project data-governance concerns. Provided usage dashboards and a project-controlled collection interface for frontend integration.</li>
+          <li>Led Java 8 / Spring 4.x / MyBatis backend development and implemented <strong>AnyID integrated login / SSO</strong> in a closed-network project environment using JBoss EAP 7.4.</li>
+          <li>Standardized setup/deployment guides and Nexus dependency management, reducing environment setup time by <strong>approximately two weeks</strong>. Coordinated requirements and delivery with developers, planners and business stakeholders.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="sheet" aria-label="Resume page 2">
+      <header class="continued"><strong>JEONGWON HAN</strong><span>Experience continued</span></header>
+
+      <article class="company" id="doubledown">
+        <div class="company-head"><h3>DoubleDown Interactive</h3><p class="date">Oct 2022 – Apr 2024</p></div>
+        <p class="job-role">Backend Engineer (Manager), Service Development Team</p>
+        <p class="company-context">Global digital gaming company. Worked on a social casino service with approximately <strong>1.23M daily active users</strong>, including the U.S. market.</p>
+        <p class="company-links"><a href="https://www.doubledowninteractive.com">doubledowninteractive.com</a></p>
+
+        <section class="project">
+          <div class="project-head"><h4>Game Service APIs &amp; Production Operations</h4><p class="date">Oct 2022 – Apr 2024</p></div>
+          <ul>
+            <li>Designed and developed player-facing APIs for <strong>Wonder Card, Dice Master and Super High Limit Game (roulette)</strong>, plus game-operation tools. Created/deployed EC2/ECS service environments and investigated production issues through service health, application logs and runtime state.</li>
+            <li>Implemented revised <strong>player-level, membership-tier and reward rules</strong> (Oct 2022 – Jan 2023), integrating event policies into the existing service and incorporating operational and user feedback.</li>
+          </ul>
+        </section>
+
+        <section class="project">
+          <div class="project-head"><h4>Inbox Advertising Refactoring</h4><p class="date">Dec 2023 – Jan 2024</p></div>
+          <ul><li>Separated collection, filtering and serving with the Strategy Pattern; centralized priority and routing rules with product and ad operations. Changes contributed to <strong>approximately 25% higher CTR</strong> (ad-team measurement) and <strong>30% less operational management time</strong>.</li></ul>
+        </section>
+
+        <section class="project">
+          <div class="project-head"><h4>Internal Deeplink &amp; Short URL Platform</h4><p class="date">Oct 2023 – Dec 2023</p></div>
+          <ul><li>Replaced Bitly with an internal platform featuring TTL-based link lifecycle management, duplicate prevention and self-service admin tools. Local caching reduced <strong>DynamoDB access by approximately 30%</strong>.</li></ul>
+        </section>
+
+        <section class="project">
+          <div class="project-head"><h4>Marketing Email Automation</h4><p class="date">Jun 2023 – Aug 2023</p></div>
+          <ul><li>Connected templates, recipient selection, deeplinks and send requests in a Spring Batch workflow with Slack notifications, reducing <strong>manual processing time by approximately 90%</strong>.</li></ul>
+        </section>
+      </article>
+
+      <article class="company" id="admax">
+        <div class="company-head"><h3>AdMax / FSN</h3><p class="date">Jan 2020 – Aug 2022</p></div>
+        <p class="job-role">Backend Engineer (Manager), R&amp;D Team</p>
+        <p class="company-context">AdTech business developing advertising tracking and fraud-detection services for South Korea and Taiwan.</p>
+        <p class="company-links"><a href="https://www.ad-max.co.kr">ad-max.co.kr</a> · <a href="https://www.fsn.co.kr">fsn.co.kr</a></p>
+        <ul>
+          <li>Developed and operated tracking/click-processing services across <strong>approximately 12 application servers</strong>; investigated HTTP request, redirect and log flows across AWS applications and advertising integrations.</li>
+          <li>Traced rising click traffic to <strong>inactive campaigns</strong> through logs and request patterns. Coordinated configuration changes through operations and DSP/SSP partners, reducing <strong>unnecessary requests by approximately 20%</strong> and avoiding unnecessary S3 log ingestion.</li>
+          <li>Compared scale-up and scale-out costs and selected scale-up, contributing to <strong>approximately 20% lower infrastructure cost</strong>.</li>
+          <li>Developed tracking SDK integration and FDS-related processing; automated external data collection and campaign-status updates, using S3 / Athena for log analysis and scheduled jobs with Telegram alerts for operational anomalies.</li>
+        </ul>
+      </article>
+
+      <section class="skills" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
+        <p><strong>Backend &amp; Data:</strong> Java · Spring / Spring Boot · Spring Batch · MyBatis · JPA · QueryDSL · PostgreSQL · MySQL · MSSQL · Oracle · Redis · DynamoDB</p>
+        <p><strong>Cloud &amp; Delivery:</strong> AWS EC2 · ECS (EC2/Fargate) · ALB · S3 · CloudFront · Route 53 · CloudWatch · CodePipeline · CodeBuild · CodeDeploy · Docker · Jenkins</p>
+        <p><strong>Workflow &amp; Troubleshooting:</strong> Airflow · ELK · Athena · LocalStack · SQL validation · Retry/backfill testing</p>
+        <p><strong>Personal Projects:</strong> Kafka · GitHub Actions · Prometheus · Grafana · Loki</p>
+      </section>
+
+      <section class="education" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <div class="education-head"><h3>Hansung University</h3><p class="date">Graduated 2016</p></div>
+        <p><strong>Bachelor's degree in Public Administration</strong> · Minor in Multimedia Engineering<br>GPA: 3.63 / 4.0 · Relevant coursework: Data Structures, Operating Systems, C Programming</p>
+      </section>
+    </section>
+  </main>
+  <script>
+    const printButton = document.getElementById('print-resume');
+    if (printButton && typeof window.print === 'function') {
+      printButton.hidden = false;
+      printButton.addEventListener('click', () => window.print());
+    }
+  </script>
+</body>
+</html>
