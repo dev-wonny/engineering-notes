@@ -2,6 +2,7 @@
 title: English Resume
 description: Jeongwon Han — Backend / Platform Engineer with experience in commerce, global gaming, AdTech, and public-sector systems.
 outline: false
+pageClass: english-resume-page
 ---
 
 # JEONGWON HAN
@@ -54,7 +55,7 @@ MSSQL · PostgreSQL · Amazon S3 · CloudFront
 - Compared legacy database records and HTML with actual storefront screens to recover inconsistent image-path and display rules, and agreed preservation requirements with product stakeholders.
 - Wrote database-driven image-backup and migration-validation scripts; checked **15,736 source images, 73,401 resulting images, and 5,053 HTML URL replacements** as migration reference data and validation results.
 - Defined separate migration and long-term operating paths, temporary-upload promotion, UUID naming, original preservation, and **1000px / 600px / 100px** resizing rules with aspect-ratio preservation and no upscaling.
-- Compared external service examples and aligned an implementable S3 / CloudFront delivery policy with the external development vendor. Discussed Lambda-based resizing and expected call volume and cost with the development lead; the contribution was policy definition and option review, not Lambda implementation.
+- Compared external service examples and aligned an implementable S3 / CloudFront delivery policy with the external development vendor. Reviewed Lambda-based resizing as an option with the development lead, discussing expected call volume and cost.
 
 [Case study: Image migration and policy (Korean)](/resume/cases/image-migration/)
 
@@ -64,12 +65,12 @@ Java · Spring Boot · AWS ECS (EC2) · Aurora · S3
 
 - Developed backend APIs for attendance, random-reward, and raffle-style events, including participation records, reward processing, and administrative operations.
 - Discussed event-specific domain models and implemented the agreed database structure under the team's final constraints.
-- Participated in application deployment and operation on ECS/EC2, using the existing AWS delivery environment rather than owning its overall infrastructure design.
+- Participated in application deployment and operation on ECS/EC2, using the team's existing AWS delivery environment.
 - Supported a seven-day birthday campaign with **10,950 entries, 6,305 participating members, and 212 members participating in every round**.
 
 ![Dolfarmer birthday campaign interface](/resume/assets/event-verified.webp)
 
-*Dolfarmer birthday campaign — customer-facing event screen. My contribution was backend development for event participation, rewards, and administrative APIs; the screenshot provides product context, not a claim of UI design ownership.*
+*Dolfarmer birthday campaign — customer-facing event screen. Backend contribution: event participation, reward processing, and administrative APIs.*
 
 [Case study: Event platform (Korean)](/resume/cases/event-platform/)
 
@@ -98,7 +99,7 @@ Java 8 · Spring 4.x · MyBatis · Oracle · JBoss EAP 7.4 · Docker · Jenkins 
 ### DoubleDown Interactive
 
 **Backend Engineer (Manager), Service Development Team** · **Oct 2022 – Apr 2024**  
-Developed and operated backend services for a global social casino gaming service with approximately **1.23M DAU**. This is service-level scale, not a traffic volume attributable to an individual feature.  
+Worked on backend services for a global social casino gaming service with approximately **1.23M DAU**.  
 [Company Website](https://www.doubledowninteractive.com)
 
 #### Game Service APIs & Production Operations
@@ -192,3 +193,27 @@ Spring Boot · Java · Kafka · Redis · PostgreSQL · Docker · AWS · JPA · Q
 Minor in **Multimedia Engineering**  
 **Relevant Computer Science Coursework:** Data Structures, Operating Systems, C Programming  
 Graduated **2016** · GPA: **3.63 / 4.0**
+
+<style>
+/* Keep this page's long site title from pushing navigation off mobile screens. */
+@media (max-width: 767px) {
+  .english-resume-page .VPNavBar .container > .title {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .english-resume-page .VPNavBarTitle,
+  .english-resume-page .VPNavBarTitle .title {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .english-resume-page .VPNavBarTitle .title span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .english-resume-page .VPNavBar .content {
+    flex: 0 0 auto;
+  }
+}
+</style>
