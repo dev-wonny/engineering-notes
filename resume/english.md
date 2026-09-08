@@ -1,6 +1,6 @@
 ---
 title: English Resume
-description: Jeongwon Han — Backend & Cloud Engineer / Production Problem Solver
+description: Jeongwon Han — Backend / Platform Engineer with experience in commerce, global gaming, AdTech, and public-sector systems.
 outline: false
 ---
 
@@ -8,216 +8,187 @@ outline: false
 
 <img src="https://avatars.githubusercontent.com/u/161826579?v=4" alt="Jeongwon Han profile photo" width="144" style="border-radius: 18px; margin: 8px 0 18px;" />
 
-**Backend & Cloud Engineer · Production Problem Solver**  
-Seoul, South Korea
-
-> **Diagnose · Structure · Solve**  
-> I turn ambiguous production problems and operational constraints into clearly defined, practical solutions.
+**Backend / Platform Engineer**  
+Seoul, South Korea  
+[devwonny@gmail.com](mailto:devwonny@gmail.com) · +82 10-9475-0201 · [GitHub](https://github.com/dev-wonny) · [Korean Resume](/resume/index.html)
 
 ## Professional Summary
 
-Backend and cloud engineer with **5+ years of experience** building, operating, and troubleshooting production systems across application, data, batch processing, advertising traffic, and AWS infrastructure layers.
+Backend and platform engineer with **5+ years of experience** across e-commerce, global gaming, AdTech, and public-sector systems. Background in Java/Spring development, AWS service operations, batch processing, and data-migration analysis, including a global gaming service with approximately **1.23M DAU**. Investigates system behavior through code, APIs, data, and logs, and works with engineering, product, operations, and external partners to clarify requirements, explain technical trade-offs, and validate proposed changes.
 
-I am most effective when the problem is not yet clearly defined. I investigate what is actually happening through logs, APIs, databases, runtime behavior, infrastructure, and business workflows; separate symptoms from root causes; and turn the findings into actions that engineering, product, operations, and external partners can execute.
+## Professional Experience
 
-My experience spans **AdTech, a global gaming service, government systems, and e-commerce**. Across these environments, the recurring theme has been the same: identify unnecessary complexity or load, understand the real constraint, and design a solution that fits the operating environment rather than defaulting to the most obvious technical answer.
+### DS GLOBAL
 
-## Selected Impact
-
-- **25% increase in advertising CTR** by restructuring advertising collection, filtering, prioritization, and serving logic.
-- **90% reduction in manual email operations** by automating repetitive marketing workflows with Spring Batch.
-- **20% reduction in unnecessary advertising requests** by analyzing request patterns and click logs and removing traffic that no longer produced meaningful value.
-- **20% reduction in AWS cost** by matching infrastructure capacity to actual usage through scale-up / scale-out decisions.
-- Reduced **DynamoDB access by approximately 30%** through local caching in an internal Deeplink platform.
-- Analyzed and validated **40+ production batch jobs** across commerce domains with a focus on retries, duplicate processing, idempotency, and backfill safety.
-- Validated migration rules and data consistency for a legacy commerce system containing **500+ MSSQL tables**.
-- Built and operated an event platform serving approximately **160K MAU**, including performance validation with **1M synthetic product records**.
-
-## Core Strengths
-
-**Production Troubleshooting**  
-Root-cause analysis across application, database, batch, cache, infrastructure, traffic, and operational workflows.
-
-**Problem Framing & Solution Design**  
-Turning unclear requirements, abnormal metrics, and technical constraints into testable hypotheses and practical architectures.
-
-**Cloud & Origin-side Operations**  
-Hands-on experience with AWS execution environments, deployment, monitoring, troubleshooting, and service operations behind ALB/ECS-based architectures.
-
-**Technical Communication**  
-Converting technical findings into concrete actions across engineering, product, QA, operations, government-project stakeholders, and external vendors or partners.
-
----
-
-# Professional Experience
-
-## DS GLOBAL
-
-**Backend / Platform Engineer** · **Jan 2026 — Present**  
-Vertical fresh-food e-commerce company operating **Dolfarmer**, an agricultural and food commerce platform in South Korea.  
+**Backend / Platform Engineer, Development Team** · **Jan 2026 – Present**  
+Backend development for the rebuilding and in-house operation of Dolfarmer, a fresh-food e-commerce platform.  
 [Company / Service Website](https://www.dolfarmer.com)
 
-### Commerce Platform Migration & System Validation · 2026 — Present
+#### Batch Platform Improvements & Policy Validation
+**Aug 2026 – Present**  
+Spring Batch · Airflow · AWS EC2 · ECS Fargate · PostgreSQL · MyBatis · Docker · LocalStack
 
-- Led technical validation for the migration of a legacy commerce platform into a new PostgreSQL-based architecture, analyzing source data from a legacy MSSQL database containing **500+ tables**.
-- Identified ambiguous mapping rules and data inconsistencies across products, suppliers, pricing, shipping, reviews, and related commerce domains.
-- Treated migration as more than data copying: clarified **domain meaning, ownership, mapping rules, validation criteria, and failure cases** between legacy and target systems.
-- Converted unclear requirements into reproducible SQL checks, API scenarios, and QA cases that could be shared across backend engineers, product teams, and an external development vendor.
+- Validate business rules and execution behavior within a portfolio of **40+ batch jobs**, comparing source data, implementation conditions, and output tables rather than relying on successful execution alone.
+- Trace policy gaps, overlapping responsibilities, and implementation defects across Quartz schedules, Spring Batch jobs, APIs, and database state; clarify expected behavior with developers and product stakeholders.
+- Proposed separating scheduling from the backend application using Jenkins or Airflow. Work with the resulting **Airflow on EC2 → ECS Fargate → Spring Batch** structure, where jobs run as on-demand tasks rather than an always-on batch service.
+- Recommended query-oriented processing to address JPA persistence-context memory and flush/clear management concerns; the team selected MyBatis. Also proposed consistent time-zone settings across the scheduler, application, and database.
+- Test reruns, retries, backfills, partial failures, and duplicate processing in a **Docker / PostgreSQL / LocalStack** environment, and document discrepancies and correction requests for the implementation team.
 
-### Production Batch Reliability · Aug 2026 — Present
+[Case study: Batch validation (Korean)](/resume/cases/batch-validation/)
 
-- Analyzed and validated **40+ production batch jobs** across order, settlement, promotion, shopping, statistics, and backbone domains.
-- Reviewed not only whether jobs completed successfully, but whether they remained safe under **retry, rerun, backfill, partial failure, duplicate execution, and external-call failure** scenarios.
-- Identified duplicate-processing and idempotency gaps as well as overlapping job responsibilities in coupon and membership workflows.
-- Traced business rules across scheduler definitions, Spring Batch jobs, APIs, and database state to distinguish implementation defects from ambiguous policy.
+#### Commerce Product Domain Analysis & Migration Criteria
+**Jul 2026**  
+MSSQL · PostgreSQL
 
-### Event Platform · Feb 2026 — Apr 2026
+- Analyzed legacy and target data structures, including a legacy MSSQL system with **500+ tables**, to define product and supplier mapping criteria for the new PostgreSQL platform.
+- Distinguished customer-facing product-page data in **Weed** from product data in **Baljumoa**, a separate ordering, delivery, and settlement SaaS where supplier relationships could vary by period and operating policy.
+- Identified **1:1, 1:N, and N:1 relationships** and documented mapping rules and exceptions using business registration numbers, company names, and product codes.
+- Proposed separating display and supply domains and separately documented a display / supply / marketplace model. Recorded identifier risks under the retained single-Product model and handed over criteria and unresolved cases to the engineers responsible for migration execution.
 
-- Developed and operated an event platform supporting attendance, random-reward, and entry-based campaigns.
-- Deployed and operated services in **AWS ECS on EC2** environments with production monitoring and troubleshooting responsibilities.
-- Validated system behavior using **1M synthetic product records** before rollout.
-- Supported a production service reaching approximately **160K monthly active users**.
+[Case study: Product-domain analysis (Korean)](/resume/cases/commerce/)
 
-### AWS Production Operations · Jan 2026 — Present
+#### Legacy Image Analysis, Migration Scripts & Delivery Policy
+**Jul 2026**  
+MSSQL · PostgreSQL · Amazon S3 · CloudFront
 
-- Created, deployed, and operated backend service environments using **ECS on EC2, EC2, ALB, RDS, Redis, S3, CloudWatch**, and AWS-native CI/CD services.
-- Worked with **CodePipeline, CodeBuild, and CodeDeploy** for production delivery.
-- Investigated issues across application logs, API behavior, database state, cache, deployment status, and AWS infrastructure rather than treating the application layer as the only possible failure point.
+- Compared legacy database records and HTML with actual storefront screens to recover inconsistent image-path and display rules, and agreed preservation requirements with product stakeholders.
+- Wrote database-driven image-backup and migration-validation scripts; checked **15,736 source images, 73,401 resulting images, and 5,053 HTML URL replacements** as migration reference data and validation results.
+- Defined separate migration and long-term operating paths, temporary-upload promotion, UUID naming, original preservation, and **1000px / 600px / 100px** resizing rules with aspect-ratio preservation and no upscaling.
+- Compared external service examples and aligned an implementable S3 / CloudFront delivery policy with the external development vendor. Discussed Lambda-based resizing and expected call volume and cost with the development lead; the contribution was policy definition and option review, not Lambda implementation.
+
+[Case study: Image migration and policy (Korean)](/resume/cases/image-migration/)
+
+#### Event Platform Development
+**Mar 2026 – Apr 2026**  
+Java · Spring Boot · AWS ECS (EC2) · Aurora · S3
+
+- Developed backend APIs for attendance, random-reward, and raffle-style events, including participation records, reward processing, and administrative operations.
+- Discussed event-specific domain models and implemented the agreed database structure under the team's final constraints.
+- Participated in application deployment and operation on ECS/EC2, using the existing AWS delivery environment rather than owning its overall infrastructure design.
+- Supported a seven-day birthday campaign with **10,950 entries, 6,305 participating members, and 212 members participating in every round**.
+
+![Dolfarmer birthday campaign interface](/resume/assets/event-verified.webp)
+
+*Dolfarmer birthday campaign — customer-facing event screen. My contribution was backend development for event participation, rewards, and administrative APIs; the screenshot provides product context, not a claim of UI design ownership.*
+
+[Case study: Event platform (Korean)](/resume/cases/event-platform/)
 
 ---
 
-## Future Platform
+### Future Platform
 
-**Service Development Team Lead** · **Jun 2025 — Dec 2025**  
-Enterprise software company delivering application-development projects, including public-sector information systems.
+**Service Development Team Lead** · **Jun 2025 – Dec 2025**  
+Public-sector backend development and team delivery-process improvements.  
+[Company Website](https://www.fuples.co.kr) · [Food Safety Korea](https://www.foodsafetykorea.go.kr/main.do)
 
-### Self-hosted Analytics Under Government Security Constraints · 2025
+#### Public-sector Backend, SSO & Development Environment
+**Jun 2025 – Dec 2025**  
+Java 8 · Spring 4.x · MyBatis · Oracle · JBoss EAP 7.4 · Docker · Jenkins · Nexus
 
-- Worked on a government information-system project operating under **closed-network and strict data-governance constraints**.
-- Identified that Google Analytics was not an appropriate fit because stakeholders were concerned about service and usage data being transmitted to an external SaaS provider.
-- Instead of giving up analytics capability, designed and deployed a **self-hosted Matomo analytics environment** on a dedicated server.
-- Built analytics dashboards and reporting data while keeping collection under project control.
-- Simplified frontend integration so client developers only needed to call the internal analytics service rather than directly integrating with an external analytics platform.
-- Delivered a practical alternative that preserved **usage visibility while respecting privacy, network, and governance requirements**.
+- Developed education management, reviewer performance management, and crisis-response volume visualization for Ministry of Food and Drug Safety projects; implemented **AnyID integrated login / SSO**.
+- Documented local execution and deployment procedures in a closed-network environment and standardized Nexus dependency-version management, reducing development-environment setup time by approximately **two weeks**.
+- Built an internal onboarding and work-management back office in **one day**, and introduced code reviews and technical discussions to improve team collaboration.
+- Deployed self-hosted **Matomo on Google Cloud** to support usage analysis before and after UI/UX changes, providing an alternative to external analytics SaaS under the project's data-governance constraints.
+- Coordinated requirements, implementation questions, and delivery with developers, project planners, and business stakeholders.
 
-### Public-sector Backend & Technical Leadership · Jun 2025 — Dec 2025
-
-- Developed backend services using **Java 8, Spring 4.x, MyBatis, and JBoss EAP 7.4** in a legacy enterprise environment.
-- Implemented **Any-ID based public-sector integrated login / SSO** functionality.
-- Worked with Docker, Jenkins, and Nexus-based development and build environments.
-- Coordinated requirements and delivery across developers, planning, and business stakeholders while working within legacy technology and deployment constraints.
+[Analytics implementation notes (Notion, Korean)](https://www.notion.so/29a47d0245aa804783dbca0ff82ebed3)
 
 ---
 
-## DoubleDown Interactive
+### DoubleDown Interactive
 
-**Service Development Manager / Backend Engineer** · **Oct 2022 — Apr 2024**  
-Global digital gaming company operating consumer gaming services across international markets, including the United States. I worked in a production environment serving approximately **1.23M DAU**.  
+**Backend Engineer (Manager), Service Development Team** · **Oct 2022 – Apr 2024**  
+Developed and operated backend services for a global social casino gaming service with approximately **1.23M DAU**. This is service-level scale, not a traffic volume attributable to an individual feature.  
 [Company Website](https://www.doubledowninteractive.com)
 
-### Global Production Operations · 2022 — 2024
+#### Game Service APIs & Production Operations
+**Oct 2022 – Apr 2024**  
+Java · Spring Boot · MySQL · Redis · AWS EC2 / ECS
 
-- Developed and operated backend services for a large-scale global gaming environment where deployment stability, service visibility, and production troubleshooting were part of normal engineering ownership.
-- Created and deployed service environments on **AWS EC2/ECS**, checked service health and application logs, and responded to production issues beyond feature implementation.
-- Gained practical experience thinking about systems serving users outside a single domestic environment, especially in a service with a significant U.S. user base.
+- Designed and developed game-service APIs for **Wonder Card, Dice Master, and Super High Limit Game (roulette)**, together with game-operation administrative tools.
+- Created and deployed application service environments on EC2/ECS, verified service health, and investigated production issues through application logs and runtime state.
 
-### Internal Deeplink & Short URL Platform · 2023 — 2024
+#### Inbox Advertising Refactoring
+**Dec 2023 – Jan 2024**  
+Java · Spring · MySQL · EC2 · Docker · ELK
 
-- Replaced dependence on an external Short URL / Deeplink service with an internally operated platform.
-- Designed lifecycle management using **DynamoDB TTL**, duplicate-prevention logic, and local caching.
-- Reduced **DynamoDB access by approximately 30%** through local caching.
-- Created operational tooling so non-engineering teams could manage routine links without repeated developer intervention.
-- Turned an external dependency and recurring operational task into a reusable internal platform.
+- Separated advertising collection, filtering, and serving with the **Strategy Pattern** and centralized priority and routing rules so product and advertising teams could configure campaign conditions with less developer intervention.
+- Changes contributed to approximately **25% higher CTR**, based on advertising-team measurement, and **30% less operational management time**.
 
-### Advertising & Marketing Platform Improvement · 2023 — 2024
+#### Internal Deeplink & Short URL Platform
+**Oct 2023 – Dec 2023**  
+Java · Spring · DynamoDB · Redis · ECS · Docker
 
-- Restructured advertising collection, filtering, prioritization, and serving logic into a more maintainable architecture.
-- Worked across engineering, product, and advertising operations to centralize fragmented campaign rules.
-- The changes contributed to an approximately **25% increase in advertising CTR**, based on advertising-team measurement.
-- Automated repetitive site-by-site marketing email workflows with **Spring Batch**, reducing manual work by approximately **90%**.
+- Built an internal Short URL / Deeplink platform to replace Bitly, including duplicate prevention, DynamoDB TTL-based lifecycle management, and administrative search and deletion.
+- Applied local caching to reduce **DynamoDB access by approximately 30%** and enabled non-engineering teams to manage routine link operations directly.
 
----
+#### Marketing Email Automation
+**Jun 2023 – Aug 2023**  
+Java · Spring Batch · Slack · Admin UI
 
-## AdMax / FSN
+- Integrated template management, recipient selection, deeplink generation, and send requests into an administrative workflow with Spring Batch automation and Slack status notifications.
+- Reduced manual marketing-email processing time by approximately **90%**.
 
-**R&D Manager / Backend Engineer** · **Jan 2020 — Aug 2022**  
-AdTech and digital marketing business operating advertising tracking, data collection, campaign, and performance-marketing systems within the DSP/SSP ecosystem.  
-[Company Website](https://www.fsn.co.kr)
+#### Player Level & Membership-tier Improvements
+**Oct 2022 – Jan 2023**  
+Java · Spring Boot · MySQL · Redis · AWS
 
-### Advertising Traffic Diagnosis & Optimization · 2020 — 2022
-
-- Operated advertising request and click-processing workloads across approximately **12 servers** and investigated increasing click-server traffic through request patterns and logs.
-- Noticed that request volume was growing while meaningful conversion traffic was not increasing proportionally.
-- Traced click logs and found traffic continuing to arrive from **inactive campaigns** that no longer produced meaningful business value.
-- Coordinated with internal operations teams to disable obsolete campaign settings and asked downstream **DSP/SSP partners** to stop generating unnecessary requests at their source.
-- Reduced unnecessary requests by approximately **20%** rather than treating additional server capacity as the default solution.
-- Optimized infrastructure capacity according to actual usage, contributing to approximately **20% lower AWS cost** through scale-up / scale-out decisions.
-
-### Data Collection & Operational Automation · 2020 — 2022
-
-- Developed advertising tracking and fraud-detection-related systems and automated data collection from platforms including **YouTube, Instagram, and Facebook**.
-- Added operational notifications and monitoring around recurring data-collection workflows.
-- Developed an early habit of asking a core production question before scaling infrastructure: **Is this traffic actually worth processing?**
+- Implemented revised player-level and membership-tier rules, reward policies, and event integration to support progression for high-level players.
+- Applied the new policies to the existing service and incorporated operational and user feedback.
 
 ---
 
-# Technical Skills
+### AdMax / FSN
 
-### Cloud / Infrastructure
-AWS EC2 · ECS (EC2/Fargate) · ALB/ELB · S3 · CloudFront · Route 53 · CloudWatch · RDS · DynamoDB · ACM
+**Backend Engineer (Manager), R&D Team** · **Jan 2020 – Aug 2022**  
+Advertising Tracking and Fraud Detection System (FDS) development and operation for services in South Korea and Taiwan.  
+[AdMax Website](https://www.ad-max.co.kr) · [FSN Website](https://www.fsn.co.kr)
 
-### Backend
-Java · Spring · Spring Boot · Spring Security · Spring Batch · MyBatis · JPA · QueryDSL
+#### Advertising Request Flow, Traffic Analysis & Infrastructure Cost
+**Jan 2020 – Aug 2022**  
+Java · Spring · EC2 · S3 · Athena · Route 53
 
-### Data
-PostgreSQL · MySQL · MSSQL · Oracle · Redis · DynamoDB
+- Developed and operated advertising tracking and click-processing services across approximately **12 servers**; investigated HTTP request, redirect, and log flows across AWS-hosted applications and advertising integrations.
+- Used click logs and request patterns to identify unnecessary traffic from inactive campaigns, then coordinated changes with operations and DSP/SSP partners to stop obsolete requests at their source.
+- Reduced unnecessary advertising requests by approximately **20%** and avoided unnecessary S3 log ingestion rather than treating server expansion as the default response.
+- Compared scale-up and scale-out costs and selected scale-up, contributing to approximately **20% lower infrastructure cost**.
 
-### Messaging / Workflow
-Kafka · RabbitMQ · Airflow
+#### Tracking, FDS & Operational Automation
+**Jan 2020 – Aug 2022**  
+Java · Spring · JavaScript · Python · MySQL · MyBatis · Redis · Jenkins · AngularJS
 
-### Delivery / Operations
-Docker · AWS CodePipeline · CodeBuild · CodeDeploy · Jenkins · ELK · LocalStack
+- Installed JavaScript tracking SDKs, automated external data collection from YouTube, Instagram, and Facebook, and integrated APIs to update campaign volume and status.
+- Developed FDS-related processing and operational back-office functions, including permission controls, data exports, and blacklist administration.
+- Used S3 and Athena for log storage and analysis and introduced **Spring scheduled jobs with Telegram alerts** for campaign anomalies and recurring data-collection workflows.
 
-### Observability — Personal Projects
-Prometheus · Grafana · Loki · GitHub Actions
+## Personal Project
 
----
+### Coopang — Microservices Commerce Platform
+**Sep 2024 – Oct 2024**  
+Spring Boot · Java · Kafka · Redis · PostgreSQL · Docker · AWS · JPA · QueryDSL · Grafana · Loki
 
-# Education
+- Designed a personal commerce project with gateway-based access and separate application services; explored header-based identity propagation inspired by Toss Passport.
+- Implemented Kafka-based service integration and refactored order-state transaction logic, with domain-driven design, layered architecture, and shared modules.
+- Configured Docker-based local integration testing and seed-data automation, and integrated **Grafana / Loki with Slack notifications** for monitoring and log investigation.
 
-## Hansung University
+![Coopang personal project service and monitoring architecture](/resume/assets/msa.webp)
 
-**B.A. in Public Administration**  
-Minor in **Multimedia Engineering** · GPA **3.63 / 4.0** · **2016**
+*Architecture of my personal learning project, showing service boundaries, Kafka messaging, data stores, and monitoring. Designed separately from production work.*
 
----
+[Project Wiki](https://github.com/dev-wonny/coopang/wiki) · [Architecture Issue #80](https://github.com/dev-wonny/coopang/issues/80)
 
-# How I Work
+## Technical Skills
 
-### 1. Observe
-I look at actual data, logs, runtime behavior, APIs, UI behavior, and infrastructure rather than relying only on documentation or source code.
+**Backend & Data:** Java · Spring / Spring Boot · Spring Batch · MyBatis · JPA · QueryDSL · PostgreSQL · MySQL · MSSQL · Oracle · Redis · DynamoDB  
+**Cloud & Delivery:** AWS EC2 · ECS (EC2/Fargate) · ALB/ELB · S3 · CloudFront · Route 53 · CloudWatch · CodePipeline · CodeBuild · CodeDeploy · Docker · Jenkins · Nexus  
+**Workflow & Troubleshooting:** Airflow · SQL-based validation · Retry / backfill / idempotency testing · ELK · Athena · LocalStack  
+**Personal-project Technologies:** Kafka · GitHub Actions · Prometheus · Grafana · Loki
 
-### 2. Define
-I separate the visible symptom from the actual problem and make the success/failure criteria explicit.
+## Education
 
-### 3. Design Options
-I compare technical alternatives, trade-offs, operational impact, security constraints, and implementation cost.
+### Hansung University
 
-### 4. Align
-I communicate findings with the people who can act on them — engineers, product teams, operations, external vendors, or infrastructure partners.
-
-### 5. Execute
-I turn the analysis into a change that can actually be deployed and operated under the real constraints of the environment.
-
-### 6. Validate
-I verify the result using real data and failure/retry scenarios rather than assuming that one successful execution proves correctness.
-
----
-
-## Positioning for Solutions Engineering
-
-Most of my career has been spent on the **origin side of Internet services** — applications, containers, load balancers, databases, caching, deployment, traffic-processing systems, and production operations.
-
-Across advertising, gaming, government, and commerce environments, I repeatedly found myself solving problems that crossed technical and operational boundaries: filtering traffic that should never have consumed application capacity, replacing SaaS products that did not fit security constraints, reducing external-service dependency, automating operational workflows, and validating complex distributed business processes.
-
-I now want to extend that production experience toward **Internet infrastructure, networking, security, and edge technologies**, where many of the same problems can be identified and solved earlier in the request path.
+**Bachelor's degree in Public Administration**  
+Minor in **Multimedia Engineering**  
+**Relevant Computer Science Coursework:** Data Structures, Operating Systems, C Programming  
+Graduated **2016** · GPA: **3.63 / 4.0**
