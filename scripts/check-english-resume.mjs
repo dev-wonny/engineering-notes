@@ -15,11 +15,13 @@ for (const required of [
   'Player Level', 'Coopang', 'Hansung University', 'Multimedia Engineering',
   'Data Structures', 'Operating Systems', 'C Programming',
   'Aug 2026', 'Jul 2026', 'Mar 2026',
+  'Now directly developing and fixing Spring Batch jobs',
+  'Development and validation remain ongoing.',
 ]) {
   assert(text.includes(required), `Missing rendered resume content: ${required}`);
 }
 const projects = [
-  ['Batch Platform Improvements & Policy Validation', 'Aug 2026 – Present'],
+  ['Batch Development, Platform Improvements & Policy Validation', 'Aug 2026 – Present'],
   ['Commerce Product Domain Analysis & Migration Criteria', 'Jul 2026'],
   ['Legacy Image Analysis, Migration Scripts & Delivery Policy', 'Jul 2026'],
   ['Event Platform Development', 'Mar 2026 – Apr 2026'],

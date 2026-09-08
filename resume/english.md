@@ -25,15 +25,15 @@ Backend and platform engineer with **5+ years of experience** across e-commerce,
 Backend development for the rebuilding and in-house operation of Dolfarmer, a fresh-food e-commerce platform.  
 [Company / Service Website](https://www.dolfarmer.com)
 
-#### Batch Platform Improvements & Policy Validation
+#### Batch Development, Platform Improvements & Policy Validation
 **Aug 2026 – Present**  
 Spring Batch · Airflow · AWS EC2 · ECS Fargate · PostgreSQL · MyBatis · Docker · LocalStack
 
-- Validate business rules and execution behavior within a portfolio of **40+ batch jobs**, comparing source data, implementation conditions, and output tables rather than relying on successful execution alone.
-- Trace policy gaps, overlapping responsibilities, and implementation defects across Quartz schedules, Spring Batch jobs, APIs, and database state; clarify expected behavior with developers and product stakeholders.
+- Initially investigated unclear business rules and implementation defects across Quartz schedules, Spring Batch jobs, APIs, and database state, and coordinated correction requests with the external development vendor and internal development lead.
+- **Now directly developing and fixing Spring Batch jobs to meet the project timeline**, implementing clarified business rules and correcting aggregation conditions by comparing source data, batch logic, and output tables.
 - Proposed separating scheduling from the backend application using Jenkins or Airflow. Work with the resulting **Airflow on EC2 → ECS Fargate → Spring Batch** structure, where jobs run as on-demand tasks rather than an always-on batch service.
 - Recommended query-oriented processing to address JPA persistence-context memory and flush/clear management concerns; the team selected MyBatis. Also proposed consistent time-zone settings across the scheduler, application, and database.
-- Test reruns, retries, backfills, partial failures, and duplicate processing in a **Docker / PostgreSQL / LocalStack** environment, and document discrepancies and correction requests for the implementation team.
+- Validate execution behavior across a portfolio of **40+ batch jobs**, including reruns, retries, backfills, partial failures, and duplicate processing, using a **Docker / PostgreSQL / LocalStack** environment. Development and validation remain ongoing.
 
 [Case study: Batch validation (Korean)](/resume/cases/batch-validation/)
 

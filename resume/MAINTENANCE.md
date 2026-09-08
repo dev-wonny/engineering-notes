@@ -23,6 +23,7 @@
 - User-confirmed periods override older drafts: Batch begins **Aug 2026**, commerce migration criteria work was **Jul 2026**, image work was **Jul 2026**, and event-platform development was **Mar–Apr 2026**. Batch stays first.
 - Commerce ownership is analysis, mapping/validation criteria, and handover. Migration execution is handled by other engineers. Do not turn this into an ongoing, personally executed migration.
 - Batch validation is ongoing across the job portfolio; do not imply that all 40+ jobs are complete or already in production.
+- Batch ownership (user-confirmed update): initially analyzed defects and coordinated correction requests with Butter (the external vendor) and the internal development lead; now directly develops and fixes Spring Batch jobs to meet the project timeline. Preserve both the earlier coordination and current hands-on development, without implying all jobs were personally built from scratch or all fixes are complete. This does not change commerce migration ownership.
 - Image-backup/validation scripts are genuine work. Lambda was discussed as an option; neither implementation nor final adoption/rejection is confirmed by that discussion alone.
 - Do not restore an independently owned AWS infrastructure / CI/CD design project. Deployment participation and troubleshooting may be described in the actual service context.
 - Preserve DoubleDown game API names (Wonder Card, Dice Master, Super High Limit Game), membership-tier work, and dated deeplink, inbox-advertising, and email-automation projects.
