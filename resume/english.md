@@ -7,7 +7,7 @@ pageClass: english-resume-page
 
 # JEONGWON HAN
 
-<img src="https://avatars.githubusercontent.com/u/161826579?v=4" alt="Jeongwon Han profile photo" width="144" style="border-radius: 18px; margin: 8px 0 18px;" />
+<img src="../assets/images/hanjeongwon.jpeg" alt="Jeongwon Han profile photo" width="144" style="border-radius: 18px; margin: 8px 0 18px;" />
 
 **Backend / Platform Engineer**  
 Seoul, South Korea  
